@@ -63,17 +63,6 @@ for i in range(len(matches)):
 homography, mask = cv2.findHomography(p1, p2, cv2.RANSAC)
 # print(homography)
 
-# cv2.imshow("output image", img1_color)
-# cv2.waitKey()
-
-# martix = np.float32([[1,0,width],[0,1,height]])
-# img1_big = cv2.warpAffine(img1_color,martix,(width*3,height*3))
-# cv2.imwrite('img1_big.jpg', img1_big)
-# cv2.imshow("big image", img1_big)
-# cv2.waitKey()
-
-# img2_big = cv2.warpAffine(img2_color,martix,(width*3,height*3))
-# cv2.imwrite('img2_big.jpg', img2_big)
 
 # Use this matrix to transform the
 # colored image wrt the reference image.
