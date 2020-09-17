@@ -71,8 +71,7 @@ transformed_img = cv2.warpPerspective(img1_color,
 
 transformed_img[0:height, 0:width] = img2_color
 
-# print(transformed_img[0][0])
-# print(transformed_img[height*2-1][width*2-1])
+
 
 # Save the output.
 cv2.imwrite('output.jpg', trim(transformed_img))
