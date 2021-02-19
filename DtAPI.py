@@ -1,41 +1,42 @@
 import cv2 as cv
-from fastapi import FastAPI, File, UploadFile , Response
-from fastapi.middleware.cors import  CORSMiddleware
-#from io import BytesIO
-#import numpy as np
-#import base64
+from fastapi import FastAPI, File, UploadFile, Response
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
-#from PIL import Image
-import shutil , os
+import shutil
+import os
 
-def detectbox(imgPath):
-    net = cv.dnn_DetectionModel('C:/Users/pro/Desktop/project/custom-yolov4-detector.cfg', 'C:/Users/pro/Desktop/project/custom-yolov4-detector_best.weights')
+defectcfg = "C:/Users/pro/Desktop/project/solardefect.cfg"
+defectweight = "C:/Users/pro/Desktop/project/7700_9984.weights"
+defectnamelist = "C:/Users/pro/Desktop/project/objdefect.names"
+
+rackcfg = "C:/Users/pro/Desktop/project/rack.cfg"
+rackweight = "C:/Users/pro/Desktop/project/custom-yolov4-detector_best.weights"
+racknamelist = "C:/Users/pro/Desktop/project/objrack.names"
+
+
+def detectbox(imgPath, CFG, WEIGHT):
+    net = cv.dnn_DetectionModel(CFG, WEIGHT)
     net.setInputSize(608, 608)
     net.setInputScale(1.0 / 255)
     net.setInputSwapRB(True)
 
     frame = cv.imread(imgPath)
 
-    classes, confidences, boxes = net.detect(frame, confThreshold=0.1, nmsThreshold=0.4)
+    classes, confidences, boxes = net.detect(
+        frame, confThreshold=0.1, nmsThreshold=0.4)
     return classes, confidences, boxes
 
-def showDetect(img_Path):
-    frame = cv.imread(img_Path)
-    classes, confidences, boxes = detectbox(img_Path)
-    with open('C:/Users/pro/Desktop/project/obj.names', 'rt') as f:
-        name = f.read().rstrip('\n').split('\n')
-    if len(classes) != 0:
-        for classId, confidence, box in zip(classes.flatten(), confidences.flatten(), boxes):
-            label = '%.2f' % confidence
-            label = '%s: %s' % (name[classId], label)
-            labelSize, baseLine = cv.getTextSize(label, cv.FONT_HERSHEY_SIMPLEX, 0.5, 1)
-            left, top, width, height = box
-            top = max(top, labelSize[1])
-            cv.rectangle(frame, box, color=(0, 255, 0), thickness=1)
-            cv.rectangle(frame, (left, top - labelSize[1]),(left + labelSize[0], top + baseLine), (255,255,255), cv.FILLED)
-            cv.putText(frame, label, (left, top), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0))
-            #print(classId,box)
-    return frame
+
+def addlist(foundlist, classlist, confidentlist, boxlist, w, h):
+    for i in range(len(confidentlist)):
+        confidentlist[i][0] = float("{:.5f}".format(confidentlist[i][0]))
+        boxlist[i][0], boxlist[i][1], boxlist[i][2], boxlist[i][3] = float("{:.5f}".format(boxlist[i][0]/w)), float(
+            "{:.5f}".format(boxlist[i][1]/h)), float("{:.5f}".format(boxlist[i][2]/w)), float("{:.5f}".format(boxlist[i][3]/h))
+    while len(classlist) > 0:
+        foundlist.append(
+            {"type": classlist.pop(), "confidence": confidentlist.pop(), "box": boxlist.pop()})
+    return foundlist
+
 
 app = FastAPI()
 origins = [
@@ -51,22 +52,27 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 @app.get("/")
 def root():
-    return {"its"," WWWoooorrrkkk!!"}
+    return {"its", " WWWoooorrrkkk!!"}
+
 
 @app.post("/test")
-def test(name: str,gender:str):
-    return {"nam":name }
+def test(name: str, gender: str):
+    return {"nam": name}
 
-@app.post("/uploadfile/") # upload display file name work
+
+@app.post("/uploadfile/")  # upload display file name work
 async def create_upload_file(file: UploadFile = File(...)):
     return {"filename": file.filename}
 
-@app.post("/uploadAndDisplay") #upload image and return image work
+
+@app.post("/uploadAndDisplay")  # upload image and return image work
 async def image_endpoint(file: UploadFile = File(...)):
     contents = await file.read()
     return Response(content=contents, media_type="image/png")
+
 
 @app.post("/detect")
 async def detect(image: UploadFile = File(...)):
@@ -74,15 +80,16 @@ async def detect(image: UploadFile = File(...)):
         shutil.copyfileobj(image.file, buffer)
     img_Path = "C:/Users/pro/Desktop/project/temp.png"
     image = cv.imread(img_Path)
-    w , h = image.shape[:2]
-    classes, confidences, boxes = detectbox(img_Path)
-    listclass , listcon , listbox = classes.tolist() , confidences.tolist() , boxes.tolist()
-    for i in range(len(listcon)):
-        listcon[i][0] = float("{:.5f}".format(listcon[i][0]))
-        print(type(listcon))
-    for i in range(len(listbox)):
-        listbox[i][0] , listbox[i][1] , listbox[i][2] , listbox[i][3] = float("{:.5f}".format(listbox[i][0]/w)) , float("{:.5f}".format(listbox[i][1]/h)) , float("{:.5f}".format(listbox[i][2]/w)) , float("{:.5f}".format(listbox[i][3]/h))
+    w, h = image.shape[:2]
     foundlist = []
-    while len(listclass) > 0:
-        foundlist.append({"type":listclass.pop(),"confidence":listcon.pop(),"box":listbox.pop()})
+    classes, confidences, boxes = detectbox(img_Path, defectcfg, defectweight)
+    listclass, listcon, listbox = classes.tolist(), confidences.tolist(), boxes.tolist()
+    foundlist = addlist(foundlist, listclass, listcon, listbox, w, h)
+
+    classes, confidences, boxes = detectbox(img_Path, rackcfg, rackweight)
+    listclass, listcon, listbox = classes.tolist(), confidences.tolist(), boxes.tolist()
+    for i in range(len(listclass)):
+        listclass[i][0] = listclass[i][0]+7
+    foundlist = addlist(foundlist, listclass, listcon, listbox, w, h)
+
     return foundlist
