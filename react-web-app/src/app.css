@@ -1,0 +1,515 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+* {
+  box-sizing: border-box;
+}
+.border-3px-blue-ribbon {
+  border: 3px solid var(--blue-ribbon);
+}
+.border-class-1 {
+  border: 3px solid rgba(255, 0, 0, 1);
+}
+.edit {
+  align-items: flex-start;
+  background-color: white;
+  display: flex;
+  overflow: hidden;
+  width: 1440px;
+}
+.edit .base {
+  background-color: var(--mystic);
+  border-radius: 30px;
+  height: 30px;
+  left: 312px;
+  position: absolute;
+  top: 126px;
+  width: 30px;
+}
+.edit .base-1 {
+  background-color: var(--mystic);
+  border-radius: 30px;
+  height: 55px;
+  width: 55px;
+}
+.edit .base-2 {
+  background-color: var(--mystic);
+  border-radius: 30px;
+  height: 55px;
+  left: 356px;
+  position: absolute;
+  top: 19px;
+  width: 55px;
+}
+.edit .base1 {
+  background-color: var(--mystic);
+  border-radius: 5px;
+  height: 57px;
+  left: 40px;
+  position: absolute;
+  top: 112px;
+  width: 343px;
+}
+.edit .base1-1 {
+  background-color: var(--mystic);
+  border-radius: 5px;
+  height: 57px;
+  width: 343px;
+}
+.edit .base1-2 {
+  background-color: var(--azure-radiance);
+  border-radius: 5px;
+  height: 57px;
+  left: 40px;
+  position: absolute;
+  top: 301px;
+  width: 343px;
+}
+.edit .butt1 {
+  align-items: flex-start;
+  background-color: var(--lily-white);
+  border-radius: 5px;
+  box-shadow: 5px 5px 25px rgba(151, 167, 195, 1);
+  display: flex;
+  height: 57px;
+  left: 0px;
+  min-width: 343px;
+  position: absolute;
+  top: 0px;
+}
+.edit .dowload {
+  left: 165px;
+  letter-spacing: 0px;
+  position: absolute;
+  top: 315px;
+}
+.edit .group-61 {
+  align-items: flex-start;
+  display: flex;
+  height: 17px;
+  left: 19px;
+  min-width: 17px;
+  position: absolute;
+  top: 19px;
+}
+.edit .group-62 {
+  align-items: flex-start;
+  display: flex;
+  height: 55px;
+  left: 15px;
+  min-width: 55px;
+  position: absolute;
+  top: 19px;
+}
+.edit .group-63 {
+  align-items: flex-start;
+  background-color: var(--hawkes-blue);
+  border-radius: 30px;
+  box-shadow: 5px 5px 25px rgba(151, 167, 195, 1);
+  display: flex;
+  height: 55px;
+  left: 0px;
+  min-width: 55px;
+  position: absolute;
+  top: 0px;
+}
+.edit .group-63-1 {
+  align-items: flex-start;
+  display: flex;
+  height: 55px;
+  left: 411px;
+  min-width: 55px;
+  position: absolute;
+  top: 485px;
+}
+.edit .group-63-2 {
+  align-items: flex-start;
+  background-color: var(--hawkes-blue);
+  border-radius: 30px;
+  box-shadow: -1px 5px 10px rgba(151, 167, 195, 1);
+  display: flex;
+  height: 55px;
+  left: 0px;
+  min-width: 55px;
+  position: absolute;
+  top: 0px;
+}
+.edit .group-68 {
+  align-items: flex-start;
+  display: flex;
+  height: 57px;
+  left: 0px;
+  min-width: 343px;
+  position: absolute;
+  top: 0px;
+}
+.edit .group-80 {
+  align-items: flex-start;
+  display: flex;
+  height: 57px;
+  left: 40px;
+  min-width: 343px;
+  position: absolute;
+  top: 195px;
+}
+.edit .issues {
+  left: 16px;
+  letter-spacing: 0px;
+  position: absolute;
+  top: 14px;
+}
+.edit .light {
+  background-color: var(--hawkes-blue);
+  border-radius: 30px;
+  height: 30px;
+  left: 312px;
+  position: absolute;
+  top: 126px;
+  width: 30px;
+}
+.edit .light-1 {
+  background-color: var(--hawkes-blue);
+  border-radius: 30px;
+  box-shadow: -5px -5px 25px rgba(255, 255, 255, 1);
+  height: 55px;
+  left: 356px;
+  position: absolute;
+  top: 19px;
+  width: 55px;
+}
+.edit .light1 {
+  background-color: var(--lily-white);
+  border-radius: 5px;
+  box-shadow: -5px -5px 25px rgba(255, 255, 255, 1);
+  height: 57px;
+  left: 40px;
+  position: absolute;
+  top: 112px;
+  width: 343px;
+}
+.edit .light1-1 {
+  background-color: var(--lily-white);
+  border-radius: 5px;
+  box-shadow: -5px -5px 25px rgba(255, 255, 255, 1);
+  height: 57px;
+  left: 40px;
+  position: absolute;
+  top: 301px;
+  width: 343px;
+}
+.edit .line-1 {
+  height: 1px;
+  left: 1344px;
+  position: absolute;
+  top: 80px;
+  width: 49px;
+}
+.edit .line-2 {
+  height: 1px;
+  left: 1343px;
+  position: absolute;
+  top: 138px;
+  width: 50px;
+}
+.edit .overlap-group {
+  height: 100vh;
+  position: relative;
+  width: 1663px;
+}
+.edit .overlap-group-1 {
+  border-radius: 30px;
+  height: 55px;
+  position: relative;
+  width: 55px;
+}
+.edit .overlap-group1 {
+  height: 57px;
+  position: relative;
+  width: 343px;
+}
+.edit .overlap-group1-1 {
+  align-items: flex-start;
+  background-color: var(--hawkes-blue);
+  border-radius: 30px;
+  box-shadow: -5px -5px 25px rgba(255, 255, 255, 1);
+  display: flex;
+  min-width: 55px;
+}
+.edit .overlap-group1-2 {
+  align-items: flex-start;
+  background-color: var(--hawkes-blue);
+  border-radius: 30px;
+  display: flex;
+  min-width: 55px;
+}
+.edit .overlap-group2 {
+  border-radius: 5px;
+  height: 57px;
+  position: relative;
+  width: 343px;
+}
+.edit .overlap-group2-1 {
+  height: 19px;
+  margin-left: -1px;
+  margin-top: -1.13px;
+  position: relative;
+  width: 19px;
+}
+.edit .overlap-group3 {
+  align-items: flex-start;
+  background-color: var(--lily-white);
+  border-radius: 5px;
+  box-shadow: -5px -5px 25px rgba(255, 255, 255, 1);
+  display: flex;
+  min-width: 343px;
+}
+.edit .polygon-1 {
+  height: 12px;
+  left: 1362px;
+  position: absolute;
+  top: 155px;
+  width: 14px;
+}
+.edit .polygon-2 {
+  height: 12px;
+  left: 1362px;
+  position: absolute;
+  top: 165px;
+  width: 14px;
+}
+.edit .project-name {
+  left: 107px;
+  letter-spacing: 0px;
+  position: absolute;
+  top: 26px;
+  color: #007AFF;
+}
+.edit .racks {
+  left: 55px;
+  letter-spacing: 0px;
+  position: absolute;
+  top: 126px;
+}
+.edit .rectangle-1 {
+  background-color: var(--athens-gray);
+  height: 100vh;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 438px;
+}
+.edit .rectangle-13 {
+  background-color: var(--quill-gray);
+  height: 1024px;
+  left: 380px;
+  position: absolute;
+  top: 0px;
+  width: 4px;
+}
+.edit .rectangle-21 {
+  height: 53px;
+  left: 1033px;
+  position: absolute;
+  top: 459px;
+  width: 31px;
+}
+.edit .rectangle-22 {
+  height: 53px;
+  left: 795px;
+  position: absolute;
+  top: 683px;
+  width: 31px;
+}
+.edit .rectangle-23 {
+  height: 53px;
+  left: 689px;
+  position: absolute;
+  top: 503px;
+  width: 31px;
+}
+.edit .rectangle-24 {
+  height: 53px;
+  left: 1142px;
+  position: absolute;
+  top: 101px;
+  width: 31px;
+}
+.edit .rectangle-25 {
+  height: 53px;
+  left: 400px;
+  position: absolute;
+  top: 142px;
+  width: 31px;
+}
+.edit .rectangle-26 {
+  height: 53px;
+  left: 877px;
+  position: absolute;
+  top: 152px;
+  width: 31px;
+}
+.edit .rectangle-29 {
+  background-color: var(--athens-gray);
+  border-radius: 5px;
+  height: 169px;
+  left: 1344px;
+  position: absolute;
+  top: 26px;
+  width: 49px;
+}
+.edit .rectangle-30 {
+  background-color: var(--azure-radiance-2);
+  border-radius: 10px;
+  height: 20px;
+  left: 1368px;
+  position: absolute;
+  top: 43px;
+  width: 2px;
+}
+.edit .rectangle-31 {
+  background-color: var(--azure-radiance-2);
+  border-radius: 10px;
+  height: 20px;
+  left: 1368px;
+  position: absolute;
+  top: 43px;
+  transform: rotate(-90deg);
+  width: 2px;
+}
+.edit .rectangle-32 {
+  background-color: var(--azure-radiance-2);
+  border-radius: 10px;
+  height: 20px;
+  left: 1368px;
+  position: absolute;
+  top: 99px;
+  transform: rotate(-90deg);
+  width: 2px;
+}
+.edit .rectangle-47 {
+  background-color: var(--azure-radiance);
+  height: 40px;
+  left: 104px;
+  position: absolute;
+  top: 26px;
+  width: 215px;
+}
+.edit .shadow {
+  background-color: var(--hawkes-blue);
+  border-radius: 30px;
+  box-shadow: 5px 5px 25px rgba(151, 167, 195, 1);
+  height: 30px;
+  left: 312px;
+  position: absolute;
+  top: 126px;
+  width: 30px;
+}
+.edit .shadow-1 {
+  background-color: var(--hawkes-blue);
+  border-radius: 30px;
+  box-shadow: 5px 5px 25px rgba(151, 167, 195, 1);
+  height: 55px;
+  left: 356px;
+  position: absolute;
+  top: 19px;
+  width: 55px;
+}
+.edit .shadow1 {
+  background-color: var(--lily-white);
+  border-radius: 5px;
+  box-shadow: 5px 5px 25px rgba(151, 167, 195, 1);
+  height: 57px;
+  left: 40px;
+  position: absolute;
+  top: 112px;
+  width: 343px;
+}
+.edit .shadow1-1 {
+  height: 33px;
+  left: 310px;
+  position: absolute;
+  top: 124px;
+  width: 59px;
+}
+.edit .shadow1-2 {
+  background-color: var(--lily-white);
+  border-radius: 5px;
+  box-shadow: 5px 5px 25px rgba(73, 138, 252, 1);
+  height: 57px;
+  left: 40px;
+  position: absolute;
+  top: 301px;
+  width: 343px;
+}
+.edit .vector {
+  height: 10px;
+  left: 291px;
+  position: absolute;
+  top: 27px;
+  width: 18px;
+}
+.edit .vector-1 {
+  height: 3px;
+  left: 0px;
+  position: absolute;
+  top: 8px;
+  width: 19px;
+}
+.edit .vector-2 {
+  height: 19px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 11px;
+}
+.edit .vector-3 {
+  height: 2px;
+  left: 383px;
+  position: absolute;
+  top: 54px;
+  width: 11px;
+}
+.edit .vector-4 {
+  height: 19px;
+  left: 374px;
+  position: absolute;
+  top: 37px;
+  width: 19px;
+}
+.edit .x23-1 {
+  height: 1024px;
+  left: 382px;
+  object-fit: cover;
+  position: absolute;
+  top: 0px;
+  width: 1281px;
+}
+.roboto-light-azure-radiance-24px {
+  color: var(--azure-radiance);
+  font-family: "Roboto", Helvetica, Arial, serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+}
+.roboto-light-white-24px {
+  color: white;
+  font-family: "Roboto", Helvetica, Arial, serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+}
+.roboto-normal-white-34px {
+  color: white;
+  font-family: "Roboto", Helvetica, Arial, serif;
+  font-size: 34px;
+  font-style: normal;
+  font-weight: 400;
+}
+:root {
+  --athens-gray: rgba(238, 241, 245, 1);
+  --azure-radiance: rgba(0, 122, 255, 1);
+  --azure-radiance-2: rgba(5, 123, 253, 1);
+  --blue-ribbon: rgba(0, 101, 255, 1);
+  --hawkes-blue: rgba(208, 226, 248, 1);
+  --lily-white: rgba(229, 240, 255, 1);
+  --mystic: rgba(227, 230, 236, 1);
+  --quill-gray: rgba(213, 213, 213, 1);
+}
