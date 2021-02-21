@@ -1,13 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios'
-import React,{ Component } from 'react';
+import React,{ Component ,useState } from 'react';
 
 class App extends Component {
   state = {
     selectedFile: null
   }
   data = []
+
 
   buttonClick = () => {
   console.log("click");
@@ -33,6 +34,7 @@ class App extends Component {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <p>{this.data}</p>
         <button onClick={this.buttonClick}>test API</button>
         <input type="file" onChange={this.fileSelectedHandler}></input>
         <button onClick={this.fileUploadHandler}>test upload</button>
