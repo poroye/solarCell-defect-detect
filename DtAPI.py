@@ -5,13 +5,13 @@ from fastapi.responses import FileResponse
 import shutil
 import os
 
-defectcfg = "C:/Users/pro/Desktop/project/solardefect.cfg"
-defectweight = "C:/Users/pro/Desktop/project/7700_9984.weights"
-defectnamelist = "C:/Users/pro/Desktop/project/objdefect.names"
+defectcfg = r"C:\Users\PON\Desktop\API\solardefect.cfg"
+defectweight = r"C:\Users\PON\Desktop\API\7700_9984.weights"
+defectnamelist = r"C:\Users\PON\Desktop\API\objdefect.names"
 
-rackcfg = "C:/Users/pro/Desktop/project/rack.cfg"
-rackweight = "C:/Users/pro/Desktop/project/custom-yolov4-detector_best.weights"
-racknamelist = "C:/Users/pro/Desktop/project/objrack.names"
+rackcfg = r"C:\Users\PON\Desktop\API\rack.cfg"
+rackweight = r"C:\Users\PON\Desktop\API\custom-yolov4-detector_best.weights"
+racknamelist = r"C:\Users\PON\Desktop\API\objrack.names"
 
 
 def detectbox(imgPath, CFG, WEIGHT):
@@ -78,20 +78,24 @@ async def image_endpoint(file: UploadFile = File(...)):
 async def detect(image: UploadFile = File(...)):
     with open("temp.png", "wb") as buffer:
         shutil.copyfileobj(image.file, buffer)
-    img_Path = "C:/Users/pro/Desktop/project/temp.png"
+    img_Path = r"C:\Users\PON\Desktop\API\temp.png"
     imageSize = cv.imread(img_Path)
     w, h = imageSize.shape[:2]
     name = image.filename
     foundlist = []
     classes, confidences, boxes = detectbox(img_Path, rackcfg, rackweight)
     if len(classes) == 0:
-        return "not detect"
-    listclass, listcon, listbox = classes.tolist(), confidences.tolist(), boxes.tolist()
-    foundlist = addlist(foundlist, listclass, listcon, listbox, w, h, name)
+        return "not found defect"
 
-    classes, confidences, boxes = detectbox(img_Path, defectcfg, defectweight)
     listclass, listcon, listbox = classes.tolist(), confidences.tolist(), boxes.tolist()
     for i in range(len(listclass)):
         listclass[i][0] = listclass[i][0]+7
     foundlist = addlist(foundlist, listclass, listcon, listbox, w, h, name)
+
+    classes, confidences, boxes = detectbox(img_Path, defectcfg, defectweight)
+    if len(classes) == 0:
+        return foundlist 
+    listclass, listcon, listbox = classes.tolist(), confidences.tolist(), boxes.tolist()
+    foundlist = addlist(foundlist, listclass, listcon, listbox, w, h, name)
+
     return foundlist
