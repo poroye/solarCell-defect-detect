@@ -27,14 +27,14 @@ def detectbox(imgPath, CFG, WEIGHT):
     return classes, confidences, boxes
 
 
-def addlist(foundlist, classlist, confidentlist, boxlist, w, h):
+def addlist(foundlist, classlist, confidentlist, boxlist, w, h, name):
     for i in range(len(confidentlist)):
         confidentlist[i][0] = float("{:.5f}".format(confidentlist[i][0]))
         boxlist[i][0], boxlist[i][1], boxlist[i][2], boxlist[i][3] = float("{:.5f}".format(boxlist[i][0]/w)), float(
             "{:.5f}".format(boxlist[i][1]/h)), float("{:.5f}".format(boxlist[i][2]/w)), float("{:.5f}".format(boxlist[i][3]/h))
     while len(classlist) > 0:
         foundlist.append(
-            {"type": classlist.pop(), "confidence": confidentlist.pop(), "box": boxlist.pop()})
+            {"filename": name, "type": classlist.pop(), "confidence": confidentlist.pop(), "box": boxlist.pop()})
     return foundlist
 
 
@@ -79,17 +79,19 @@ async def detect(image: UploadFile = File(...)):
     with open("temp.png", "wb") as buffer:
         shutil.copyfileobj(image.file, buffer)
     img_Path = "C:/Users/pro/Desktop/project/temp.png"
-    image = cv.imread(img_Path)
-    w, h = image.shape[:2]
+    imageSize = cv.imread(img_Path)
+    w, h = imageSize.shape[:2]
+    name = image.filename
     foundlist = []
-    classes, confidences, boxes = detectbox(img_Path, defectcfg, defectweight)
-    listclass, listcon, listbox = classes.tolist(), confidences.tolist(), boxes.tolist()
-    foundlist = addlist(foundlist, listclass, listcon, listbox, w, h)
-
     classes, confidences, boxes = detectbox(img_Path, rackcfg, rackweight)
+    if len(classes) == 0:
+        return "not detect"
+    listclass, listcon, listbox = classes.tolist(), confidences.tolist(), boxes.tolist()
+    foundlist = addlist(foundlist, listclass, listcon, listbox, w, h, name)
+
+    classes, confidences, boxes = detectbox(img_Path, defectcfg, defectweight)
     listclass, listcon, listbox = classes.tolist(), confidences.tolist(), boxes.tolist()
     for i in range(len(listclass)):
         listclass[i][0] = listclass[i][0]+7
-    foundlist = addlist(foundlist, listclass, listcon, listbox, w, h)
-
+    foundlist = addlist(foundlist, listclass, listcon, listbox, w, h, name)
     return foundlist
