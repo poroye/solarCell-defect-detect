@@ -6,12 +6,12 @@
   border: 1px solid var(--mountain-mist);
 }
 .landing1 {
-  background-color: #EEF1F5;
+  background-color: #121212;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: top center;
   background-size: cover; /* or 100% 100% */
-  height: 100vh;
+  height: 133vh;
 }
 .landing1 .btn {
   /* border-radius: 5px; */
@@ -28,24 +28,59 @@
 }
 
 .landing1 .card{
-  top: 10vh;
-  height: 500px;
-  width: 800px;
+  display: flexbox;
+  top: 50px;
+  height: 600px;
+  width: 1000px;
+  background-color: #242424;
 
   
 }
 
 .landing1 .card-header{
   font-size: 24px;
-  color: #007AFF;
+  color: #E8398A;
   text-align: center;
-  margin-bottom: 330px;    
+  margin-bottom: 330px;  
+  background-color: #2C2C2C;  
 }
 
-
+.card-body{
+  padding-top: 5em; 
+}
 
 .landing1 #uploadtxt{
-  color: #999999;
+  color: #FFFFFF;
   text-align: center;
   margin-bottom: 20px;
+}
+
+.engCha{
+  background: url("./flat-cha2.svg") no-repeat center center;
+  width: 300px;
+  height: 540px;
+  margin-top: 150px;
+  margin-left: 75px;
+  /* background-size: 100%; */
+}
+
+.SolFlat{
+  position: absolute;
+  background: url("./Flat-Solar.svg") no-repeat center center;
+  width: 300px;
+  height: 153px;
+  margin-left: 50px;
+}
+
+.s2{
+  margin-top: 540px;
+  
+}
+.s1{
+  margin-top: 320px;
+
+}
+.s0{
+  margin-top: 100px;
+
 }
