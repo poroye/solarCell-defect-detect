@@ -237,7 +237,8 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
                     setUnsupportedFiles([...validFiles]);
                     setshows(true)
                 }
-              })
+            })
+        // console.log("drop boxes = ",boxes);
         }
 
 

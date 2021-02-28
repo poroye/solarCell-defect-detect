@@ -8,9 +8,10 @@ import Dropzone from './Dropzone';
 
 function Home({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,changeenable}) {
 
-const clk = () => {
-  changeboxes(7)
-}
+  document.title = "Solar Panel Inspection";
+  const clk = () => {
+    changeboxes(7)
+  }
 
   return (<>
             {/* <button onClick={clk}></button> */}

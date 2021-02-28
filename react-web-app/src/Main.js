@@ -1,4 +1,4 @@
-import App from './App';
+import App from './App2';
 import Home from './Home';
 import React, { useRef, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link, NavLink, Switch } from 'react-router-dom';
