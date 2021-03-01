@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useEffect} from "react";
 import "./Home.css";
 import { BrowserRouter as Router, Route, Link, NavLink, Switch } from 'react-router-dom';
 import Container from 'react-bootstrap/Container'
@@ -7,11 +7,23 @@ import Col from 'react-bootstrap/Col'
 import Dropzone from './Dropzone';
 
 function Home({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,changeenable}) {
-
-  document.title = "Solar Panel Inspection";
   const clk = () => {
     changeboxes(7)
   }
+  
+  var elem = document.documentElement;
+  const OpenFullscreen = () => {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+  useEffect(()=>{
+    OpenFullscreen()
+  },[])
+}
 
   return (<>
             {/* <button onClick={clk}></button> */}

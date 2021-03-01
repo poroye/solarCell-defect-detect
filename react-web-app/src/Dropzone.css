@@ -1,6 +1,7 @@
+
 .updes{
     color: #FFFFFF;
-    margin-top: 10px;
+    margin-top: 20px;
 
     text-align: center;
 }
@@ -15,9 +16,24 @@
     position: absolute;
     margin-top: 20px ;
 }
+
+.example-btn{
+    width: 200px;
+    height: 36px;
+    /* border-radius: 5px; */
+    color: #E8398A;
+    /* background-color: #242424; */
+    font-size: 16px;
+    position: absolute;
+    margin-top: -5px;
+    right: -80px;
+    top: 15px;
+    cursor: pointer;
+
+}
 hr{
     margin-left: 50px;
-    width: 450px;
+    width: 465px;
 
 }
 .Present{
@@ -262,7 +278,7 @@ hr{
 }
 
 .modal .overlay{
-    width: 100wh;
+    width: 100vw;
     height: 100vh;
     background: rgba(0,0,0,.66);
     position: absolute;
@@ -270,6 +286,16 @@ hr{
     left: 0;
 }
 
+.overlay2{
+    width: 100vw;
+    height: 110vh;
+    background: rgba(0,0,0,.66);
+    position: absolute;
+    top: 0;
+    left: 0;
+    top: -100px;
+    left: -260px;
+}
 .modal .modal-image{
     position: absolute;
     top: 50%;
@@ -305,7 +331,17 @@ hr{
     filter: invert(52%) sepia(83%) saturate(5338%) hue-rotate(310deg) brightness(93%) contrast(96%);
     /* transition: 0.3s; */
 }
-
+.close2{
+    position: fixed;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    cursor: pointer;
+    background: url('./cancel.svg') no-repeat center center;
+    width: 50px;
+    height: 50px;
+    filter: invert(52%) sepia(83%) saturate(5338%) hue-rotate(310deg) brightness(93%) contrast(96%);
+}
 .upload-modal {
     z-index: 999;
     display: none;
@@ -314,7 +350,7 @@ hr{
 
 .upload-modal .overlay{
     width: 100vw;
-    height: 100vh;
+    height: 110vh;
     background: black;
     position: absolute;
     top: -100px;
@@ -325,6 +361,19 @@ hr{
 .loading-txt{
     color: white;
     margin-top: 20px;
+}
+
+.example-container{
+    background:#242424;
+    width: 900px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+    border-radius: 5px;
+    text-align: center;
 }
 
 .progress-container {
@@ -373,4 +422,35 @@ hr{
 
 .error {
     color: red;
+}
+
+.Recommend-txt{
+    color: #FFFFFF;
+    font-size: 20px;
+    position: absolute;
+    color: #E8398A;
+    margin-top: 15px;
+
+}
+.dot{
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    background-color: #E8398A;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.bef-dot{
+    font-size: 16px;
+    color: #FFFFFF;
+    margin-left: 20px;
+}
+.example-header{
+    width: 400px;
+    height: 50px;
+    background-color: #2D2D2D;
+    margin-left:-32px;
+    margin-bottom: 20px;
 }

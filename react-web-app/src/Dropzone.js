@@ -5,6 +5,7 @@ import {Card} from 'react-bootstrap';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import exam from './example.jpg';
 
 
 import './Dropzone.css';
@@ -17,6 +18,9 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
     const progressRef = useRef();
     const uploadRef = useRef();
     const uploadModalRef = useRef();
+
+    const exampleRef = useRef();
+
     // const [selectedFiles, setSelectedFiles] = useState([]);
     const [validFiles, setValidFiles] = useState([]);
     const [unsupportedFiles, setUnsupportedFiles] = useState([]);
@@ -25,6 +29,10 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
 //////////////////////////////////////////////////////////////////////////////////////////////
     
 /////   funtion การทำงาน  ///////////////////////////////////////////////////////////////////////////
+    useEffect(()=>{
+        exampleRef.current.style.display = "none";
+    },[])
+
     useEffect(() => {
         let filteredArr = imgs.reduce((acc, current) => {
             const x = acc.find(item => item.name === current.name);
@@ -165,6 +173,13 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
         }
     }
 
+    const openExampleModal = () => {
+        exampleRef.current.style.display = "block";
+    }
+    const closeExample = () =>{
+        exampleRef.current.style.display = "none";
+    }
+
     const closeModal = () => {
         console.log(imgs.length,enableemptys)
         modalRef.current.style.display = "none";
@@ -173,7 +188,7 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
 
     const uploadFiles = async () => {
         uploadModalRef.current.style.display = 'block';
-        uploadRef.current.innerHTML = 'loading';
+        uploadRef.current.innerHTML = 'loading...';
         let count = 0;
         let max = validFiles.length;
         console.log("count = ",count,"boxes = ",boxes,"valid = ",validFiles,"select = ",imgs);
@@ -229,7 +244,7 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
                 progressRef.current.style.width = `${uploadPercentage}%`;
 
                 if (uploadPercentage === 100) {
-                    uploadRef.current.innerHTML = 'File(s) Processing';
+                    uploadRef.current.innerHTML = 'Complete';
                     // validFiles.length = 0;
                     // setValidFiles([...validFiles]);
                     // changeimgs([...validFiles]);
@@ -237,8 +252,7 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
                     setUnsupportedFiles([...validFiles]);
                     setshows(true)
                 }
-            })
-        // console.log("drop boxes = ",boxes);
+              })
         }
 
 
@@ -246,10 +260,6 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
         else{
             setshows(true)
         }
-
-
-        // console.log(imgs)
-        // imgs.map( i => {console.log(i.name);} )
         }
 
     const closeUploadModal = () => {
@@ -273,7 +283,7 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
                             <div className="drop-message"> 
                                 <div className="upload-icon" /*Cloud icon*/></div> 
                                 <div className="DragMessage txt">Drag & Drop here<br/>or Browse file(s)</div>
-                                <br/>max resolution <br/>1000 px X 1000 px
+                                {/* <br/>max resolution <br/>1000 px X 1000 px */}
                             </div>
                             <input
                                 ref={fileInputRef}
@@ -292,7 +302,9 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
                     </Col>
                     <Col sm={6}>
                             <span className="Present txt">Your Image</span>
-                            <hr style={{border:'1px solid #FFFFFF'}} /* line สีดำ */></hr> 
+                            {/* <button classname="Example-btn">Example</button> */}
+                            <div className="example-btn" onClick={() => openExampleModal()}>Recommend</div>
+                            <hr style={{border:'1px solid #FFFFFF'}}></hr> 
                             <div className="file-display-container" /*แสดงชื่อ ขนาดภาพ*/>
                             {
                                 imgs.map((data, i) =>
@@ -334,6 +346,32 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
                     {/* <div className="loading-txt">loading</div> */}
                 </div>
             </div>
+            
+            
+
+            <div className="example-modal" ref={exampleRef}>
+                <div className="overlay2"></div>
+                <div className="close2" onClick={(() =>closeExample())}></div>
+                <div className="example-container">
+                <Row>
+                    <Col sm={7}>
+                         <img className="example-img" src={exam}  width="500" height="500" ></img>
+                    </Col>
+                    <Col sm={5} style={{textAlign:"left"}}>
+                        <div className="Recommend-txt txt">Recommend Image </div>
+                        <div className="example-header"></div>
+                        <div className="dot"></div>
+                        <div className="bef-dot">Maximum resolution is 1000 x 1000 px</div>
+                        <br></br>
+                        <div className="dot"></div>
+                        <div className="bef-dot">horizontal alignment</div>
+                        <br></br>
+                        <div className="dot"></div>
+                        <div className="bef-dot">Infrared and orthophoto</div>
+                    </Col>
+                </Row>
+                </div>
+            </div>             
         </>
     );
 }
