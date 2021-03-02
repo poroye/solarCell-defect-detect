@@ -1,11 +1,12 @@
 import App from './App';
 import Home from './Home';
+import Display from './Display';
 import React, { useRef, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link, NavLink, Switch } from 'react-router-dom';
 
 function Main() {
     const [box,setBox] = useState([]);
-    const [show,setShow] = useState(false);
+    const [show,setShow] = useState(1);
     const [img,setImg] = useState([])
     const [enableempty,setEnableempty] = useState(false);
 
@@ -38,9 +39,10 @@ function Main() {
     // )
     return(
         <div className="Main">
-            {show ? <App boxes={box} changeboxes={changebox} changeshows={changeshow} imgs={img} changeimgs={changeimg}></App> : 
-            <Home boxes={box} changeboxes={changebox} changeshows={changeshow} imgs={img} changeimgs={changeimg} 
+            {show == 0 && <App boxes={box} changeshows={changeshow} imgs={img} ></App> } 
+            {show == 1 && <Home boxes={box} changeboxes={changebox} changeshows={changeshow} imgs={img} changeimgs={changeimg} 
                 enableemptys={enableempty} changeenable={changeenable}></Home>}
+            {show == 2 && <Display boxes={box} changeshows={changeshow} imgs={img} ></Display> }
         </div>
     );
 }

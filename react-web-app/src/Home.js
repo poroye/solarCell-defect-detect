@@ -34,10 +34,11 @@ function Home({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,change
           <div className="SolFlat s1"></div>
           <div className="SolFlat s2"></div> */}
         </Col>
+        <div className="head-tab"></div>
         <Col>
         <div className="card">
           <div className="card-header">
-            <h4 className="my-0 font-weight-normal txt">Upload Image</h4>
+            <h4 className="upload-txt">Upload Image</h4>
           </div>
           <div className="card-body">
             <Dropzone boxes={boxes} changeboxes={changeboxes} changeshows={changeshows} imgs={imgs} changeimgs={changeimgs} enableemptys={enableemptys} changeenable={changeenable}/>
@@ -45,6 +46,20 @@ function Home({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,change
         </div>
         </Col>
         <Col>
+            {/* <div className="history-card">
+                <div className="card-header">
+                  <h4 className="history-txt">History Images</h4>
+                </div>
+                <span className="recent-txt">Recent</span>
+                <hr style={{border:'0.5px solid #FFFFFF', width:350,marginLeft:30,background:'white',marginTop:-280}}></hr>
+                <div className="history-display-container">
+                    <div className="historyCard">
+                      <span className="history-file-name"></span>
+                      <span className="history-file-size"></span>
+                      <span className="history-date"></span>
+                    </div>
+                </div>
+            </div> */}
             {/* <div className="engCha"></div> */}
         </Col>
       </Row>

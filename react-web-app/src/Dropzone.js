@@ -248,9 +248,9 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
                     // validFiles.length = 0;
                     // setValidFiles([...validFiles]);
                     // changeimgs([...validFiles]);
-                    console.log(imgs)
+                    console.log(imgs);
                     setUnsupportedFiles([...validFiles]);
-                    setshows(true)
+                    setshows(0);
                 }
               })
         }
@@ -258,7 +258,7 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
 
         }
         else{
-            setshows(true)
+            setshows(0)
         }
         }
 
@@ -303,7 +303,7 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
                     <Col sm={6}>
                             <span className="Present txt">Your Image</span>
                             {/* <button classname="Example-btn">Example</button> */}
-                            <div className="example-btn" onClick={() => openExampleModal()}>Recommend</div>
+                            <div className="example-btn" onClick={() => openExampleModal()}>Instructions</div>
                             <hr style={{border:'1px solid #FFFFFF'}}></hr> 
                             <div className="file-display-container" /*แสดงชื่อ ขนาดภาพ*/>
                             {
@@ -358,7 +358,7 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
                          <img className="example-img" src={exam}  width="500" height="500" ></img>
                     </Col>
                     <Col sm={5} style={{textAlign:"left"}}>
-                        <div className="Recommend-txt txt">Recommend Image </div>
+                        <div className="Recommend-txt txt">Recommended Image </div>
                         <div className="example-header"></div>
                         <div className="dot"></div>
                         <div className="bef-dot">Maximum resolution is 1000 x 1000 px</div>

@@ -1,5 +1,6 @@
 import React, { useState , useEffect , useRef } from "react";
 import "./app.css";
+import Paper from './Paper';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -16,56 +17,9 @@ function Rack() {
   );
 }
 
-function Paper(confi,counter,nowbox,dl,d0,d1,d2,d3,d4,d5,d6,d7) {
-  const canvas = useRef();
-  let ctx = null;
-  const [nowlist,setNowlist] = useState([]);
-  useEffect(() => {
-    const canvasEle = canvas.current;
-    canvasEle.width = 800;
-    canvasEle.height = 800;
-    ctx = canvasEle.getContext("2d");
-    nowlist.map(item => {drawRect(item[0],item[1]);});
-    console.log("draw");
-  });
-  useEffect(() => {
-    setNowlist([]);
-    console.log("HandleChange:",d7);
-    if (nowbox.length > 0){
-      nowbox.map(item => {
-        const rInfo = {x:item[3][0]*800, y:item[3][1]*800, w:item[3][2]*800, h:item[3][3]*800 };
-        let rstyle = { borderColor: 'black', borderWidth: 0.1 };
-        if(item[1] == 0 && d0 && dl && item[2] > confi)     {rstyle = { borderColor: 'blue',  borderWidth: 3 };}
-        else if(item[1] == 1 && d1 && dl && item[2] > confi){rstyle = { borderColor: 'red',    borderWidth: 3 };}
-        else if(item[1] == 2 && d2 && dl && item[2] > confi){rstyle = { borderColor: 'green',  borderWidth: 3 };}
-        else if(item[1] == 3 && d3 && dl && item[2] > confi){rstyle = { borderColor: 'purple', borderWidth: 3 };}
-        else if(item[1] == 4 && d4 && dl && item[2] > confi){rstyle = { borderColor: 'orange', borderWidth: 3 };}
-        else if(item[1] == 5 && d5 && dl && item[2] > confi){rstyle = { borderColor: 'lightgreen',   borderWidth: 3 };}
-        else if(item[1] == 6 && d6 && dl && item[2] > confi){rstyle = { borderColor: 'pink',   borderWidth: 3 };}
-        else if(item[1] == 7 && d7 && item[2] > confi)      {rstyle = { borderColor: 'yellow', borderWidth: 3 };}
-        setNowlist(prev => [...prev,[rInfo, rstyle]]);
-      })
-    }
-  },[counter,nowbox,dl,d0,d1,d2,d3,d4,d5,d6,d7]);
-
-  const drawRect = (info, style = {}) => {
-    const { x, y, w, h } = info;
-    const { borderColor = 'black', borderWidth = 1 } = style;
-    ctx.beginPath();
-    ctx.strokeStyle = borderColor;
-    ctx.lineWidth = borderWidth;
-    ctx.rect(x, y, w, h);
-    ctx.stroke();
-  } 
-  return (
-    <div>
-      <canvas ref={canvas} style={{border:'1px solid #999999',position:'absolute', zIndex:1 , marginTop:"5vh"}} ></canvas> 
-    </div>
-  );
-}
-
-function App({ boxes, changeboxes, changeshows, imgs, changeimgs }) {
+function App({ boxes, changeshows, imgs }) {
 /////////////////////////////para config///////////////////////////////////
+  
   const confi = 0.4;
   const counter = useRef(0);
   const [indx, setIndx] = useState(0);
@@ -198,7 +152,7 @@ function App({ boxes, changeboxes, changeshows, imgs, changeimgs }) {
     Updateimg();
   };
 
-  function backtohome() {changeshows(false);}
+  function backtohome() {changeshows(1);}
 
   const Changeid = (num) => {
     const value = parseInt(num);
@@ -250,13 +204,13 @@ function App({ boxes, changeboxes, changeshows, imgs, changeimgs }) {
     if (d5n>0){setD5(prev => !prev);}
     if (d6n>0){setD6(prev => !prev);}
   }
-  const toggle0 = (checked) => {if (d0n>0){setD0(prev => !prev);}}
-  const toggle1 = (checked) => {if (d1n>0){setD1(prev => !prev);}}
-  const toggle2 = (checked) => {if (d2n>0){setD2(prev => !prev);}}
-  const toggle3 = (checked) => {if (d3n>0){setD3(prev => !prev);}}
-  const toggle4 = (checked) => {if (d4n>0){setD4(prev => !prev);}}
-  const toggle5 = (checked) => {if (d5n>0){setD5(prev => !prev);}}
-  const toggle6 = (checked) => {if (d6n>0){setD6(prev => !prev);}}
+  const toggle0 = (checked) => {if (d0n>0 && dl){setD0(prev => !prev);}}
+  const toggle1 = (checked) => {if (d1n>0 && dl){setD1(prev => !prev);}}
+  const toggle2 = (checked) => {if (d2n>0 && dl){setD2(prev => !prev);}}
+  const toggle3 = (checked) => {if (d3n>0 && dl){setD3(prev => !prev);}}
+  const toggle4 = (checked) => {if (d4n>0 && dl){setD4(prev => !prev);}}
+  const toggle5 = (checked) => {if (d5n>0 && dl){setD5(prev => !prev);}}
+  const toggle6 = (checked) => {if (d6n>0 && dl){setD6(prev => !prev);}}
   const toggle7 = (checked) => {if (d7n>0){setD7(prev => !prev);}}
   const something = () => {}
 
@@ -273,6 +227,8 @@ function App({ boxes, changeboxes, changeshows, imgs, changeimgs }) {
       </div>);
     }
   }
+
+  const display = () => { changeshows(2);}
 
   return (
       <Container fluid className="process1">
@@ -464,12 +420,13 @@ function App({ boxes, changeboxes, changeshows, imgs, changeimgs }) {
                   />
               </div>
             </div>
-            <button className="Dowload-btn">Download</button>
+            <button className="Dowload-btn" onClick={display}>Download</button>
           </div>
         </Col>
         <Col sm={7}>
           {renderslider()}
-          {Paper(confi,counter.current,nowbox,dl,d0,d1,d2,d3,d4,d5,d6,d7)}
+          <Paper confi={confi} counter={counter.current} nowbox={nowbox} dl={dl} d0={d0} d1={d1} d2={d2} d3={d3} d4={d4} d5={d5} d6={d6} d7={d7} size={800}></Paper>
+          {/* {Paper(confi,counter.current,nowbox,dl,d0,d1,d2,d3,d4,d5,d6,d7,800)} */}
           <img className="image-view" src={solarimg.file}></img>
         </Col>
       </Row>
