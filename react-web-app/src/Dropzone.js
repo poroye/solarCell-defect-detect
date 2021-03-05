@@ -1,16 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react';
 import axios from 'axios';
-import {Button} from 'react-bootstrap';
-import {Card} from 'react-bootstrap';
-import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import exam from './example.jpg';
+import exam from './img/example.jpg';
 
 
 import './Dropzone.css';
 
-///  Object ในการ Uploadต่าง  //////////////////////////////////////////////////////////////
 const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,changeenable}) => {
     const fileInputRef = useRef();
     const modalImageRef = useRef();
@@ -21,17 +17,11 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
 
     const exampleRef = useRef();
 
-    // const [selectedFiles, setSelectedFiles] = useState([]);
     const [validFiles, setValidFiles] = useState([]);
     const [unsupportedFiles, setUnsupportedFiles] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
-    // const [enableempty,setEnableempty] = useState(false);
-//////////////////////////////////////////////////////////////////////////////////////////////
-    
-/////   funtion การทำงาน  ///////////////////////////////////////////////////////////////////////////
-    useEffect(()=>{
-        exampleRef.current.style.display = "none";
-    },[])
+
+    useEffect(()=>{exampleRef.current.style.display = "none";},[])
 
     useEffect(() => {
         let filteredArr = imgs.reduce((acc, current) => {
@@ -41,27 +31,17 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
             for (let j = 0 ; j < boxes.length ; j++){
                 if (current.name == boxes[j][0]){
                     y = false;
-                    break
-                }
-            }
+                    break}}
             
             console.log("current = ",current.name);
-            // if (!x){
-            if (!x && y) { //add
-                // console.log("if",acc.concat([current]));
-                return acc.concat([current]);
-            } else { //not add
-                // console.log("else",acc);
-              return acc;
-            }
+            if (!x && y) {return acc.concat([current]);
+            } else { return acc;}
         }, []);
         setValidFiles([...filteredArr]);
         
     }, [imgs]);
 
-    const setshows = (valueshow) => {
-        changeshows(valueshow);
-    }
+    const setshows = (valueshow) => {changeshows(valueshow);}
 
     const preventDefault = (e) => {
         e.preventDefault();
@@ -109,21 +89,6 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
                     setErrorMessage('File type not permitted');
                     setUnsupportedFiles(prevArray => [...prevArray, files[i]]);
                 }
-            
-            
-
-
-
-
-
-            // if (validateFile(files[i])) {
-            //     changeimgs(prevArray => [...prevArray, files[i]]);
-            // } else {
-            //     files[i]['invalid'] = true;
-            //     changeimgs(prevArray => [...prevArray, files[i]]);
-            //     setErrorMessage('File type not permitted');
-            //     setUnsupportedFiles(prevArray => [...prevArray, files[i]]);
-            // }
         }
     }
 
@@ -192,27 +157,10 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
         let count = 0;
         let max = validFiles.length;
         console.log("count = ",count,"boxes = ",boxes,"valid = ",validFiles,"select = ",imgs);
-        // for (let i = 0 ; i<validFiles.length ; i++){
-        //     for (let j = 0 ; j < boxes.length ; j++){
-        //         if (validFiles[i].name == boxes[j][0]){
-        //             console.log("dup",validFiles[i].name);
-        //             let temparr = validFiles.filter(item => item.name != boxes[j][0]);
-        //             console.log("filter",temparr);
-        //             // console.log("splice",temparr.splice(i,1));
-        //             // temparr.splice(i,1);
-        //             setValidFiles([...temparr])
-        //             // i = i - 1
-        //             break
-        //         }
 
-        //     }
-        // }
         console.log("valid size",validFiles.length)
         if (validFiles.length > 0){
-        // filfile = imgs.filter(img => !boxes.)
-        // 
-        // if not process
-        // 
+
         for (let i = 0; i < validFiles.length; i++) {
             const formData = new FormData();
             formData.append('image', validFiles[i]);
@@ -221,9 +169,6 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
                 uploadRef.current.innerHTML = `<span class="error">Error Uploading File(s)</span>`;
                 progressRef.current.style.backgroundColor = 'red';
             }).then(res => {
-                // console.log(res.data);
-                ////////////////
-                // changeboxes(prevArray => [...prevArray,res.data[0]]);
                 
                 res.data.map((defect) =>{
                     if(boxes == []){
@@ -232,22 +177,15 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
                     else{
                         changeboxes(prevArray => [...prevArray,defect])
                     }
-                    // console.log(defect)//, 
-                    // changeboxes(prevArray => [...prevArray,...defect])
-                    }
-                );
+                });
 
-                //////////////////
                 count = count + 1;
                 const uploadPercentage = Math.floor((count * 100) / max);
                 progressRef.current.innerHTML = `${uploadPercentage}%`;
                 progressRef.current.style.width = `${uploadPercentage}%`;
-
+ 
                 if (uploadPercentage === 100) {
                     uploadRef.current.innerHTML = 'Complete';
-                    // validFiles.length = 0;
-                    // setValidFiles([...validFiles]);
-                    // changeimgs([...validFiles]);
                     console.log(imgs);
                     setUnsupportedFiles([...validFiles]);
                     setshows(0);
@@ -261,6 +199,36 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
             setshows(0)
         }
         }
+
+    const checkimg = (singleimg)=>{
+        var ch = false
+        boxes.map((defect) =>{
+            if (singleimg.name == defect[0]){
+                ch = true
+            }
+        })
+        return ch
+    }
+
+    const showimage = () => {
+        return imgs.map((data, i) =>
+        <div className="fileCard" style={{width: '440px',height:'90px'}} /*กรอบคลุม */> 
+            <div className="file-status-bar" key={i}>
+                    <div className="file-status" onClick={!data.invalid ? () => openImageModal(data) : () => removeFile(data.name)} /* Click แล้วแสดงภาพตัวอย่าง */>
+                        <div className="file-type-logo" /* logo ภาพ */></div>
+
+                        {!checkimg(data) ? <span className={`file-name txt ${data.invalid ? 'file-error' : ''}`}/*ชื่อไฟล์ */>{data.name}</span>:
+                        <span className={`file-name txt ${data.invalid ? 'file-error' : ''}`}/*ชื่อไฟล์ */ style={{color:"green"}}>{data.name}</span>}
+
+                       
+
+                        <span className="file-size txt" /* ขนาดไฟล์ */>({fileSize(data.size)})</span> {data.invalid && <span className='file-error-message'>({errorMessage})</span>}
+                    </div>
+                    <div className="file-remove " onClick={() => removeFile(data.name)}></div>
+            </div>
+        </div> 
+        )
+    }
 
     const closeUploadModal = () => {
         uploadModalRef.current.style.display = 'none';
@@ -306,23 +274,7 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
                             <div className="example-btn" onClick={() => openExampleModal()}>Instructions</div>
                             <hr style={{border:'1px solid #FFFFFF'}}></hr> 
                             <div className="file-display-container" /*แสดงชื่อ ขนาดภาพ*/>
-                            {
-                                imgs.map((data, i) =>
-                                <div className="fileCard" style={{width: '440px',height:'90px'}} /*กรอบคลุม */> 
-                                    <div className="file-status-bar" key={i}>
-                                            <div className="file-status" onClick={!data.invalid ? () => openImageModal(data) : () => removeFile(data.name)} /* Click แล้วแสดงภาพตัวอย่าง */>
-                                                <div className="file-type-logo" /* logo ภาพ */></div>
-
-                                                {/* <div className="file-type">{fileType(data.name)}</div> */}
-
-                                                <span className={`file-name txt ${data.invalid ? 'file-error' : ''}`}/*ชื่อไฟล์ */>{data.name}</span>
-                                                <span className="file-size txt" /* ขนาดไฟล์ */>({fileSize(data.size)})</span> {data.invalid && <span className='file-error-message'>({errorMessage})</span>}
-                                            </div>
-                                            <div className="file-remove " onClick={() => removeFile(data.name)}></div>
-                                    </div>
-                                </div> 
-                                )
-                            }
+                            {showimage()}
                         </div>
                     </Col>
                 </Row>
@@ -336,7 +288,7 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
             </div>
 
             <div className="upload-modal" ref={uploadModalRef}>
-                <div className="overlay"></div>
+                <div className="overlay2"></div>
                 {/* <div className="close" onClick={(() => closeUploadModal())}></div> */}
                 <div className="progress-container">
                     <span className="txt" ref={uploadRef}></span>

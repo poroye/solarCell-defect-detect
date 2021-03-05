@@ -33,7 +33,7 @@
   height: 600px;
   width: 1000px;
   background-color: #242424;
-  left: 32px;
+  left: 17vw;
 
   
 }
@@ -41,7 +41,7 @@
 .landing1 .card-header{
   font-size: 24px;
   color: #E8398A;
-  /* text-align: left; */
+  text-align: center;
   margin-bottom: 330px;  
   background-color: #2C2C2C;  
 }
@@ -58,7 +58,7 @@
 }
 
 .engCha{
-  background: url("./flat-cha2.svg") no-repeat center center;
+  background: url("./img/flat-cha2.svg") no-repeat center center;
   width: 300px;
   height: 540px;
   margin-top: 150px;
@@ -68,7 +68,7 @@
 
 .SolFlat{
   position: absolute;
-  background: url("./Flat-Solar.svg") no-repeat center center;
+  background: url("./img/Flat-Solar.svg") no-repeat center center;
   width: 300px;
   height: 153px;
   margin-left: 50px;
@@ -87,17 +87,18 @@
 
 }
 .head-tab{
-  width: 1550px;
+  /* position: absolute; */
+  width: 1700px;
   height: 80px;
   top: 0px;
   left: 0px;
   background-color: #2C2C2C;
 }
 
-.upload-txt{
+/* .upload-txt{
   
   margin-left: 30px;
-}
+} */
 
 .history-card{
   position: absolute;

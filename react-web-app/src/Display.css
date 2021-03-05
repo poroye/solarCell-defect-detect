@@ -1,0 +1,49 @@
+.display-img{
+    width: 500px;
+    height: 500px;
+}
+
+.back-btn{
+    position: relative;
+    width: 300px;
+    height:100px;
+    margin-left: 800px;
+}
+
+.Display-container{
+    position: relative;
+    text-align: left;
+    color: black;
+}
+
+.boxlist{
+    position: absolute;
+    left:800px;
+    top: 50px;
+    font-size: 16px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.rack-des-tjxt{
+    /* float: left; */
+    width: 500px;
+}
+
+.def-des-txt{
+    position: static;
+    left: 500px;
+}
+.racklist{
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  color: white;
+  font-weight: bold;
+ /* font-weight: 300; */
+}
+
+.paper{
+    position: absolute;
+    top:-70px;
+}

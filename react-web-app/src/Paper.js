@@ -10,11 +10,9 @@ function Paper({confi,counter,nowbox,dl,d0,d1,d2,d3,d4,d5,d6,d7,size}) {
       canvasEle.height = size;
       ctx = canvasEle.getContext("2d");
       nowlist.map(item => {drawRect(item[0],item[1]);});
-      console.log("draw");
     });
     useEffect(() => {
       setNowlist([]);
-      console.log("HandleChange:",d7);
       if (nowbox.length > 0){
         nowbox.map(item => {
           const rInfo = {x:item[3][0]*size, y:item[3][1]*size, w:item[3][2]*size, h:item[3][3]*size };
@@ -40,7 +38,10 @@ function Paper({confi,counter,nowbox,dl,d0,d1,d2,d3,d4,d5,d6,d7,size}) {
       ctx.lineWidth = borderWidth;
       ctx.rect(x, y, w, h);
       ctx.stroke();
-    } 
+    }
+    if (confi == -5){
+      return <canvas ref={canvas} style={{border:'1px solid #999999',position:'absolute',left:0} } ></canvas> 
+    }
     return (
         <canvas ref={canvas} style={{border:'1px solid #999999',position:'absolute', zIndex:1 , marginTop:"5vh"}} ></canvas> 
     );

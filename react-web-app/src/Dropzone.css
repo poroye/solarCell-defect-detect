@@ -132,7 +132,7 @@ hr{
 .upload-icon {
     width: 70px;
     height: 70px;
-    background: url("./upload.svg") no-repeat center center; 
+    background: url("./img/upload.svg") no-repeat center center; 
     background-size: 100%;
     text-align: center;
     margin: 0 auto;
@@ -235,7 +235,7 @@ hr{
 .file-type-logo {
     width: 50px;
     height: 50px;
-    background: url('./picture.png') no-repeat center center; 
+    background: url('./img/picture.png') no-repeat center center; 
     background-size: 100%;
     position: absolute;
     margin-top: 20px;
@@ -263,7 +263,7 @@ hr{
     right: 15px;
     line-height: 15px;
     cursor: pointer;
-    background: url('./cancel.svg') no-repeat center center;
+    background: url('./img/cancel.svg') no-repeat center center;
     width: 35px;
     filter: invert(64%) sepia(7%) saturate(24%) hue-rotate(81deg) brightness(95%) contrast(85%);
     height: 35px;
@@ -291,14 +291,14 @@ hr{
 }
 
 .overlay2{
-    width: 112.6vw;
+    width: 100vw;
     height: 100vh;
     background: rgba(0,0,0,.66);
     position: absolute;
     /* top: 0;
     left: 0; */
     top: -100px;
-    left: -260px;
+    left: -295px;
     z-index: 1;
 }
 .modal .modal-image{
@@ -330,7 +330,7 @@ hr{
     right: 35px;
     color: #f1f1f1;
     cursor: pointer;
-    background: url('./cancel.svg') no-repeat center center;
+    background: url('./img/cancel.svg') no-repeat center center;
     width: 50px;
     height: 50px;
     filter: invert(52%) sepia(83%) saturate(5338%) hue-rotate(310deg) brightness(93%) contrast(96%);
@@ -342,7 +342,7 @@ hr{
     right: 35px;
     color: #f1f1f1;
     cursor: pointer;
-    background: url('./cancel.svg') no-repeat center center;
+    background: url('./img/cancel.svg') no-repeat center center;
     width: 50px;
     height: 50px;
     filter: invert(52%) sepia(83%) saturate(5338%) hue-rotate(310deg) brightness(93%) contrast(96%);
@@ -376,7 +376,7 @@ hr{
     height: 500px;
     position: absolute;
     top: 40%;
-    left: 70%;
+    left: 50%;
     transform: translate(-50%,-50%);
     overflow: hidden;
     border-radius: 5px;
@@ -392,7 +392,7 @@ hr{
     height: 150px;
     position: absolute;
     top: 40%;
-    left: 70%;
+    left: 50%;
     transform: translate(-50%,-50%);
     overflow: hidden;
     border-radius: 5px;

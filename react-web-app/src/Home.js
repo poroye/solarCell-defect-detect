@@ -5,25 +5,18 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Dropzone from './Dropzone';
+import axios from 'axios';
 
 function Home({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,changeenable}) {
   const clk = () => {
     changeboxes(7)
   }
-  
-  var elem = document.documentElement;
-  const OpenFullscreen = () => {
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.webkitRequestFullscreen) { /* Safari */
-    elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) { /* IE11 */
-    elem.msRequestFullscreen();
-  }
+
   useEffect(()=>{
-    OpenFullscreen()
-  },[])
-}
+    axios.get('http://127.0.0.1:8000/getall').then((res)=>{
+      changeboxes(res.data);
+    })
+  },[imgs])
 
   return (<>
             {/* <button onClick={clk}></button> */}

@@ -8,8 +8,8 @@
 }
 
 .checkTab{
-  margin-left: -79px;
-  width: 20rem;
+  margin-left: -20px;
+  width: 23rem;
   height: 100vh;
   position: fixed;
   background-color: #2C2C2C ;
@@ -40,43 +40,18 @@
 }
 .nav-logo1{
   /* margin-right: 10px; */
-  margin-left:14px;
+  position: absolute;
+  margin-top: 12px;
+  margin-left:20px;
   width: 25px;
   height: 25px;
-  background: url("./arrow.svg") no-repeat center center;
+  background: url("./img/arrow.svg") no-repeat center center;
   filter: invert(53%) sepia(8%) saturate(12%) hue-rotate(341deg) brightness(95%) contrast(84%);
 
 }
 
-.nav-logo2{
-  /* margin-top: -; */
-  margin-right: -5px;
-  margin-left:10px;
-  width: 30px;
-  height: 30px;
-  background: url("./eye-regular.svg") no-repeat center center;
-  filter: invert(53%) sepia(8%) saturate(12%) hue-rotate(341deg) brightness(95%) contrast(84%);
-
-}
-
-.nav-logo3{
-  /* margin-right: -10px; */
-  margin-left:8px;
-  width: 30px;
-  height: 30px;
-  background: url("./info.svg") no-repeat center center;
-  filter: invert(53%) sepia(8%) saturate(12%) hue-rotate(341deg) brightness(95%) contrast(84%);
-
-}
-
-.nav-logo4{
-  margin-left:10px;
-  margin-right: -5px;
-  width: 30px;
-  height: 30px;
-  background: url("./cloud-computing.svg") no-repeat center center;
-  filter: invert(53%) sepia(8%) saturate(12%) hue-rotate(341deg) brightness(95%) contrast(84%);
-
+.nav-logo1:hover{
+  filter: invert(33%) sepia(68%) saturate(3659%) hue-rotate(313deg) brightness(97%) contrast(87%);
 }
 
 .navbar-nav{
@@ -122,40 +97,6 @@
 
 }
 
-.nav-link:hover .nav-logo1{
-  filter: invert(33%) sepia(68%) saturate(3659%) hue-rotate(313deg) brightness(97%) contrast(87%);
-}
-
-.nav-link:hover .nav-logo2{
-  filter: invert(33%) sepia(68%) saturate(3659%) hue-rotate(313deg) brightness(97%) contrast(87%);
-}
-
-.nav-link:hover .nav-logo3{
-  filter: invert(33%) sepia(68%) saturate(3659%) hue-rotate(313deg) brightness(97%) contrast(87%); 
-}
-
-.nav-link:hover .nav-logo4{
-  filter: invert(33%) sepia(68%) saturate(3659%) hue-rotate(313deg) brightness(97%) contrast(87%);
-}
-
-.nav-link:focus .nav-logo3{
-  filter: invert(33%) sepia(68%) saturate(3659%) hue-rotate(313deg) brightness(97%) contrast(87%);
-
-}
-
-.nav-link:focus .ex-box{
-  visibility: visible;
-}
-
-.nav-link:focus .nav-logo4{
-  filter: invert(33%) sepia(68%) saturate(3659%) hue-rotate(313deg) brightness(97%) contrast(87%);
-  
-}
-
-.nav-link:focus .nav-logo2{
-  filter: invert(33%) sepia(68%) saturate(3659%) hue-rotate(313deg) brightness(97%) contrast(87%);
-  
-}
 .line{
   position: relative;
   border: 0.5px solid #999999;
@@ -181,7 +122,7 @@
 
 .check-tab{
   margin-left: 28px;
-  width:300px;
+  width:17.5rem;
   height:60px;
   background-color: #343434;
   color: white;
@@ -190,10 +131,13 @@
   margin-bottom: 10px;
   cursor: pointer;
 }
+.check-tab:hover{
+  background-color: #323232;
+}
 
 .defect-txt{
   font-family: 'Roboto', sans-serif;
-  margin-left: 10px;
+  margin-left: 20px;
   margin-top: 25px;
   position: absolute;
   font-size: 18px;
@@ -204,12 +148,12 @@ position: absolute;
 font-family: 'Roboto', sans-serif;
 font-size: 18px;
 margin-top: 25px;
-right: 110px;
+right: 130px;
 
 }
 
 .file-name-bar{
-  width: 360px;
+  width: 23rem;
   height: 50px;
   background-color: #323232;
   margin-bottom: 20px;
@@ -222,25 +166,30 @@ right: 110px;
 .file-name-txt{
   position: absolute;
   margin-top: 15px;
-  right: 50px;
+  left: 60px;
 }
 
 .Dowload-btn{
-  width:300px;
-  height:60px;
-  position: static;
+  width:20rem;
+  height:70px;
+  position: fixed;
   background-color: #E8398A;
   color: white;
   border-radius: 10px;
   margin-left: 28px;
-  margin-top: 10px;
+  margin-top: 0px;
+  top: 620px;
+}
+
+.Dowload-btn:hover{
+  opacity: 0.8;
 }
 
 .left-but{
   position: fixed;
   width: 30px;
   height: 30px;
-  background: url("./left.svg") no-repeat center center;
+  background: url("./img/left.svg") no-repeat center center;
   filter: invert(33%) sepia(68%) saturate(3659%) hue-rotate(313deg) brightness(97%) contrast(87%);
   margin-left: -120px;
   margin-top: 24%;
@@ -295,7 +244,7 @@ right: 110px;
   position: fixed;
   width: 30px;
   height: 30px;
-  background: url("./left.svg") no-repeat center center;
+  background: url("./img/left.svg") no-repeat center center;
   filter: invert(33%) sepia(68%) saturate(3659%) hue-rotate(313deg) brightness(97%) contrast(87%);
   margin-left: -120px;
   margin-top: 36%;
@@ -307,14 +256,245 @@ right: 110px;
 .right-but:hover{
   opacity: 1;
 }
-/* .over-flow-check{
-  width: 350px;
-  height: 500px;
-  position:static;
-  overflow-y: auto;
-} */
+.over-flow-check{
+ position: absolute;
+ height: 530px;
+ overflow-y: scroll;
+ width: 22.5rem;
+}
+
+.over-flow-check::-webkit-scrollbar{
+  width: 11px;
+}
+
+.over-flow-check::-webkit-scrollbar-track{
+  background:#323232;
+  border-radius: 6px;
+}
+
+.over-flow-check::-webkit-scrollbar-thumb{
+  background-color: #E8398A;
+  border-radius: 6px;
+  border: 2px solid #323232;
+}
 
 .react-switch{
+  margin-top: 25px;
+  margin-left: 82%;
+}
+
+.drop-logo{
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: url("./img/download.svg") no-repeat center center;
+  filter: invert(56%) sepia(0%) saturate(1813%) hue-rotate(203deg) brightness(87%) contrast(81%);
+  left:  265px;
+  margin-top: 24px;
+}
+
+.information-tab{
+  margin-left: 28px;
+  width:300px;
+  height:60px;
+  background-color: #343434;
+  color: white;
+  border-radius: 5px;
+  position: relative;
+  margin-bottom: 10px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.dropdown-content{
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 300px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content span{
+  display: block;
+}
+
+
+.information-btn1{
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  right: 0px;
+  top: 70px;
+}
+
+.information-btn2{
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  right: 0px;
+  top: 140px;
+}
+
+.information-btn3{
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  right: 0px;
+  top: 210px;
+}
+
+.information-btn4{
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  right: 0px;
+  top: 280px;
+}
+
+.information-btn5{
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  right: 0px;
+  top: 350px;
+}
+
+.information-btn6{
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  right: 0px;
+  top: 420px;
+}
+.information-btn7{
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  right: 0px;
+  top: 490px;
+}
+
+
+
+
+
+.inform-icon{
+  position: absolute;
+  margin-top: 25px;
+  margin-left: 20px;
+  width: 20px;
+  height: 20px;
+  background: url("./img/info\ \(1\).svg") no-repeat center center;
+  filter: invert(53%) sepia(8%) saturate(12%) hue-rotate(341deg) brightness(95%) contrast(84%);
+  cursor: pointer;
+}
+
+.inform-icon:hover{
+  filter: invert(33%) sepia(68%) saturate(3659%) hue-rotate(313deg) brightness(97%) contrast(87%);
+}
+
+.inform-icon:focus{
+  filter: invert(33%) sepia(68%) saturate(3659%) hue-rotate(313deg) brightness(97%) contrast(87%);
+}
+
+.upload-btn{
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  margin-top: 590px;
+  margin-left: -170px;
+  background-color: #E8398A;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+}
+
+.upload-btn:hover{
+  opacity: 0.8;
+}
+
+.upload-logo{
+  position: absolute;
+  top:25px;
+  left:25px;
+  width: 50px;
+  height: 50px;
+  background: url("./img/cloud-computing.svg") no-repeat center center;
+  filter: invert(98%) sepia(8%) saturate(62%) hue-rotate(281deg) brightness(115%) contrast(100%);
+}
+
+.slider-all{
+ position: absolute;
+ top:-200px;
+}
+
+/* .slider-tab{
+  width:400px;
+  height: 1000px;
+  background-color: #E8398A;
+  position: fixed;
+  left:70px;
+} */
+
+.info-content1{
+  position: fixed;
+  margin-left: -220px;
+  margin-top: 80px;
+  width: 500px;
+  height: 450px;
+  border-radius: 5px;
+  background-color: #323232;
+  color: white;
+  text-align: left;
+  z-index: 2;
+}
+
+.info-head{
   margin-top: 20px;
-  margin-left: 78%;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-left: 30px;
+  font-size: 24px;
+}
+
+.hotspot-img{
+  width: 500px;
+  height: 250px;
+}
+
+.bypass-img{
+  width: 500px;
+  height: 250px;
+}
+
+.veget-img{
+  width: 500px;
+  height: 250px;
+}
+
+.pid-img{
+  width: 500px;
+  height: 250px;
+}
+
+.module-img{
+  width: 500px;
+  height: 250px;
+}
+
+.ss-img{
+  width: 500px;
+  height: 250px;
+}
+.sr-img{
+  width: 500px;
+  height: 250px;
+}
+
+.info-txt{
+  margin-left: 30px;
+  margin-right: 30px;
 }
