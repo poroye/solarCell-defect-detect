@@ -39,8 +39,10 @@ def addlist(foundlist, classlist, confidentlist, boxlist, w, h, name):
             "{:.5f}".format(boxlist[i][1]/h)), float("{:.5f}".format(boxlist[i][2]/w)), float("{:.5f}".format(boxlist[i][3]/h))
         racklist.append([i])
     while len(classlist) > 0:
-        foundlist.append([name,classlist.pop(),confidentlist.pop(),boxlist.pop(),racklist.pop()])
+        foundlist.append(
+            [name, classlist.pop(), confidentlist.pop(), boxlist.pop(), racklist.pop()])
     return foundlist
+
 
 def addlist2(foundlist, classlist, confidentlist, boxlist, w, h, name):
     racklist = []
@@ -52,17 +54,21 @@ def addlist2(foundlist, classlist, confidentlist, boxlist, w, h, name):
         mindis = 500000
         minindx = 0
         for j in range(len(foundlist)):
-            rackX, rackY = foundlist[j][3][0]+(foundlist[j][3][2]/2) , foundlist[j][3][1]+(foundlist[j][3][3]/2)
-            defectX, defectY = boxlist[i][0] + (boxlist[i][2]/2) , boxlist[i][1] + (boxlist[i][3]/2)
-            temp_min = sqrt( abs(rackX-defectX)**2 + abs(rackY-defectY)**2 )
-            print(rackX,rackY,defectX,defectY,temp_min)
+            rackX, rackY = foundlist[j][3][0] + \
+                (foundlist[j][3][2]/2), foundlist[j][3][1] + \
+                (foundlist[j][3][3]/2)
+            defectX, defectY = boxlist[i][0] + \
+                (boxlist[i][2]/2), boxlist[i][1] + (boxlist[i][3]/2)
+            temp_min = sqrt(abs(rackX-defectX)**2 + abs(rackY-defectY)**2)
+            print(rackX, rackY, defectX, defectY, temp_min)
             if temp_min < mindis:
                 minindx = j
                 mindis = temp_min
-                print("new min = ",mindis)
+                print("new min = ", mindis)
         racklist.append([minindx])
     while len(classlist) > 0:
-        foundlist.append([name,classlist.pop(),confidentlist.pop(),boxlist.pop(),racklist.pop()])
+        foundlist.append(
+            [name, classlist.pop(), confidentlist.pop(), boxlist.pop(), racklist.pop()])
     return foundlist
 
 
@@ -90,16 +96,19 @@ def root():
 def test(name: str, gender: str):
     return {"nam": name}
 
+
 @app.post("/word")
 def test(name: str):
     file_Path = "C:/Users/PON/Desktop/API/test.doc"
-    pdfFileObj = open(file_Path, 'rb') 
+    pdfFileObj = open(file_Path, 'rb')
     return Response(content=pdfFileObj, media_type="application/msword")
+
 
 @app.get("/download")
 def downlaod_file():
     file_path = "C:/Users/PON/Desktop/API/readme.txt"
     return FileResponse(file_path)
+
 
 @app.post("/uploadfile/")  # upload display file name work
 async def create_upload_file(file: UploadFile = File(...)):
@@ -132,7 +141,7 @@ async def detect(image: UploadFile = File(...)):
     # print(foundlist)
     classes, confidences, boxes = detectbox(img_Path, defectcfg, defectweight)
     if len(classes) == 0:
-        return foundlist 
+        return foundlist
     listclass, listcon, listbox = classes.tolist(), confidences.tolist(), boxes.tolist()
     foundlist = addlist2(foundlist, listclass, listcon, listbox, w, h, name)
     # print(foundlist)
