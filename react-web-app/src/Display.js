@@ -28,7 +28,7 @@ function Display({ boxes, changeshows, imgs }) {
         var numrack = 0;
         for(var i = 0;i<boxes.length;i++){
             if(boxes[i][0] == item.name && boxes[i][1] == 7 && boxes[i][4][0] > numrack){
-                 numrack = parseInt(boxes[i][4][0])
+                numrack = parseInt(boxes[i][4][0])
             }
         }
         for(let j = 0;j<numrack+1;j++){

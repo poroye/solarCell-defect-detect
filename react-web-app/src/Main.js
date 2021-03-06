@@ -2,6 +2,7 @@ import App from './App';
 import Home from './Home';
 import Display from './Display';
 import React, { useState } from 'react';
+import Pdf from './Pdf';
 
 function Main() {
     const [box,setBox] = useState([]);
@@ -19,7 +20,8 @@ function Main() {
             {show == 0 && <App boxes={box} changeshows={changeshow} imgs={img} ></App> } 
             {show == 1 && <Home boxes={box} changeboxes={changebox} changeshows={changeshow} 
             imgs={img} changeimgs={changeimg} enableemptys={enableempty} changeenable={changeenable}></Home>}
-            {show == 2 && <Display boxes={box} changeshows={changeshow} imgs={img} ></Display> }
+            {/* {show == 2 && <Display boxes={box} changeshows={changeshow} imgs={img} ></Display> } */}
+            {show == 2 && <Pdf boxes={box} changeshows={changeshow} imgs={img} ></Pdf> }
         </div>
     );
 }
