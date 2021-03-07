@@ -14,29 +14,24 @@ import moduleInfor from './img/module.jpg';
 import ssInfor from './img/ss.jpg';
 import srInfor from './img/sr.jpg';
 
+import ReactToPrint from 'react-to-print';
+import { ComponentToPrint } from './ComponentToPrint';
+
 function App({ boxes, changeshows, imgs }) {
 /////////////////////////////para config///////////////////////////////////
   // let tapmode = 0;
   const [tapmode,setTapmode] = useState(0);
   const confi = 0.4;
   const counter = useRef(0);
-  const [indx, setIndx] = useState(0);
+  // const [indx, setIndx] = useState(0);
   const [slide,setSlide] = useState(counter.current);
 
   const [showname,setShowname] = useState("");
 
   const informationRef = useRef();
+  const componentRef = useRef();
   
   ///toggle button//////////////////////
-
-
-  const [sw,setSw] = useState(false);
-  const swRef = useRef(false);
-  
-  useEffect(() =>{
-    console.log("HandleChange:",sw);
-  },[sw]);
-
   useEffect(()=>{informationRef.current.style.display = "block";},[])
 
   var solarimg = {
@@ -98,12 +93,6 @@ function App({ boxes, changeshows, imgs }) {
     });
   },[counter.current]);
 
-///Togle Button//////////////////////////////////////////////////////////////////////////
-  function handleChange(checked){
-    console.log("Checked:",checked);
-    if(sw == false){setSw(true);}
-    else{setSw(false)}}
-
 ////////////infoButton/////////////////////////////////////////////////////////////////////////////
 
   const [showInformation, setShowInformation] = useState(false);
@@ -135,20 +124,20 @@ function App({ boxes, changeshows, imgs }) {
 
   const Goleft = () => {
     if (counter.current == 0 && imgs.length > 1) {
-      setIndx(imgs.length - 1);
+      // setIndx(imgs.length - 1);
       counter.current = imgs.length - 1;
     } else if (imgs.length > 1) {
-      setIndx((prev) => parseInt(prev)-1);
+      // setIndx((prev) => parseInt(prev)-1);
       counter.current = counter.current - 1;}
     Updateimg();
   };
 
   const Goright = () => {
     if (counter.current == imgs.length - 1 && imgs.length > 1) {
-      setIndx(0);
+      // setIndx(0);
       counter.current = 0;
     } else if (counter.current < imgs.length-1) {
-      setIndx((prev) => parseInt(prev)+1);
+      // setIndx((prev) => parseInt(prev)+1);
       counter.current = counter.current + 1;}
     Updateimg();
   };
@@ -240,7 +229,7 @@ function App({ boxes, changeshows, imgs }) {
               <div className="check-tab" onClick={togglel}>
                   {dl ? <span className="defect-txt">All Defect enable</span> : <span className="defect-txt" style={{color:"#777"}}>All Defect disable</span>}
                   {dl ? <div className="number">{d0n+d1n+d2n+d3n+d4n+d5n+d6n}</div> : <div className="number" style={{color:"#777"}}>{d0n+d1n+d2n+d3n+d4n+d5n+d6n}</div>}
-                  <Switch onColor="#E8398A" onHandleColor="#FFFFFF" uncheckedIcon={false} checkedIcon={false} onChange={something} checked={dl} className="react-switch" height={18} width={36}/>
+                  <Switch onColor="#2F91FF" onHandleColor="#FFFFFF" uncheckedIcon={false} checkedIcon={false} onChange={something} checked={dl} className="react-switch" height={18} width={36}/>
               </div>
               <div className="check-tab" onClick={toggle0}>
                   {d0n > 0 ? <span className="defect-txt">Bypass Diode</span> : <span className="defect-txt" style={{color:"#777"}}>Bypass Diode</span>}
@@ -251,6 +240,8 @@ function App({ boxes, changeshows, imgs }) {
               <div className="information-btn1" ref={informationRef}>
                   <div className="inform-icon" onClick={() => infoClick(1)}>
                   </div>
+                  {showInformation && showInformationVar == 1 && <div className="info-icon2" onClick={() => infoClick(1)}>  
+                    </div>}
               </div>
 
               <div className="check-tab" onClick={toggle1}>
@@ -262,6 +253,8 @@ function App({ boxes, changeshows, imgs }) {
               <div className="information-btn2" ref={informationRef}>
                   <div className="inform-icon" onClick={() => infoClick(2)}>
                   </div>
+                  {showInformation && showInformationVar == 2 && <div className="info-icon2" onClick={() => infoClick(2)}>  
+                    </div>}
               </div>
 
               <div className="check-tab" onClick={toggle2}>
@@ -273,6 +266,8 @@ function App({ boxes, changeshows, imgs }) {
               <div className="information-btn3" ref={informationRef}>
                   <div className="inform-icon" onClick={() => infoClick(3)}>
                   </div>
+                  {showInformation && showInformationVar == 3 && <div className="info-icon2" onClick={() => infoClick(3)}>  
+                    </div>}
               </div>
 
               <div className="check-tab" onClick={toggle3}>
@@ -284,6 +279,8 @@ function App({ boxes, changeshows, imgs }) {
               <div className="information-btn4" ref={informationRef}>
                   <div className="inform-icon" onClick={() => infoClick(4)}>
                   </div>
+                  {showInformation && showInformationVar == 4 && <div className="info-icon2" onClick={() => infoClick(4)}>  
+                    </div>}
               </div>
 
               <div className="check-tab" onClick={toggle4}>
@@ -295,6 +292,8 @@ function App({ boxes, changeshows, imgs }) {
               <div className="information-btn5" ref={informationRef}>
                   <div className="inform-icon" onClick={() => infoClick(5)}>
                   </div>
+                  {showInformation && showInformationVar == 5 && <div className="info-icon2" onClick={() => infoClick(5)}>  
+                    </div>}
               </div>
 
               <div className="check-tab" onClick={toggle5}>
@@ -306,6 +305,8 @@ function App({ boxes, changeshows, imgs }) {
               <div className="information-btn6" ref={informationRef}>
                   <div className="inform-icon" onClick={() => infoClick(6)}>
                   </div>
+                  {showInformation && showInformationVar == 6 && <div className="info-icon2" onClick={() => infoClick(6)}>  
+                    </div>}
               </div>
 
               <div className="check-tab" onClick={toggle6}>
@@ -317,6 +318,8 @@ function App({ boxes, changeshows, imgs }) {
               <div className="information-btn7" ref={informationRef}>
                   <div className="inform-icon" onClick={() => infoClick(7)}>
                   </div>
+                  {showInformation && showInformationVar == 7 && <div className="info-icon2" onClick={() => infoClick(7)}>  
+                    </div>}
               </div>
 
               <div className="check-tab" onClick={toggle7}>
@@ -325,7 +328,23 @@ function App({ boxes, changeshows, imgs }) {
                   <Switch onColor="#FFD800" onHandleColor="#FFFFFF" uncheckedIcon={false} checkedIcon={false} onChange={something} checked={d7} disabled = {d7n==0} className="react-switch" height={18} width={36}/>
               </div>
             </div>
-            <button className="Dowload-btn" onClick={display}>Download</button>
+
+
+            <div>
+              <ReactToPrint
+                  trigger={() => <button className="Dowload-btn">Print this out!</button>}
+                  content={() => componentRef.current}
+                  documentTitle="Solar_Panel_Report"
+              />
+              {/* <div> */}
+              <div style={{ display: "none" }} >
+                  <ComponentToPrint ref={componentRef} boxes={boxes} imgs={imgs}/>
+              </div>
+            </div>
+
+
+
+
           </div> 
         </Col>
         <Col sm={7}>
@@ -373,13 +392,15 @@ function App({ boxes, changeshows, imgs }) {
               <div className="info-head">String Reverse</div>
               <div className="info-txt">This is due to a reverse polarity connection which is likely a human error during installation at array box or DC Panel.</div>
             </div>}
+          </div>
+          <div className="click-tab">
             <div onClick={backtohome} className="upload-btn">
               <div className="upload-logo"></div>
             </div>
-            {renderslider()}
           </div>
           <Paper confi={confi} counter={counter.current} nowbox={nowbox} dl={dl} d0={d0} d1={d1} d2={d2} d3={d3} d4={d4} d5={d5} d6={d6} d7={d7} size={800}></Paper>
           <img className="image-view" src={solarimg.file}></img>
+          {renderslider()}
         </Col>
       </Row>
       </Container>

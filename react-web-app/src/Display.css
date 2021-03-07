@@ -1,6 +1,6 @@
 .display-img{
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
 }
 
 .back-btn{
@@ -38,12 +38,15 @@
   position: absolute;
   top: 50px;
   left: 10px;
-  color: white;
+  color: black;
   font-weight: bold;
  /* font-weight: 300; */
 }
 
 .paper{
-    position: absolute;
+    /* position: absolute;
+    width: 300px;
+    height: 300px;
     top:-70px;
+    margin-left:50px; */
 }

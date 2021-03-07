@@ -1,6 +1,6 @@
 
 .updes{
-    color: #FFFFFF;
+    color: #F5F5F5;
     margin-top: 20px;
 
     text-align: center;
@@ -9,7 +9,7 @@
     width: 400px;
     height: 70px;
     border-radius: 10px;
-    background-color: #E8398A;
+    background-color: #2F91FF;
     opacity: 0.38;
     color: #EFEFEF;
     font-size: 24px;
@@ -20,7 +20,7 @@
 .example-btn{
     width: 200px;
     height: 36px;
-    color: #E8398A;
+    color: #2F91FF;
     font-size: 16px;
     position: absolute;
     right: -80px;
@@ -29,8 +29,13 @@
 }
 
 .example-btn:hover{
-    opacity:0.8;
+    color:#429BFF;
 }
+
+.example-btn:focus{
+    color:#6BB1FF;
+}
+
 hr{
     margin-left: 50px;
     width: 465px;
@@ -39,7 +44,7 @@ hr{
 .Present{
     margin-left: 50px;
     font-size: 24px;
-    color: #FFFFFF;
+    color: #FCFCFC;
 
 }
 .file-input {
@@ -52,7 +57,7 @@ hr{
     width: 520px;
     height: 405px;
     scrollbar-width: thin;
-    scrollbar-color:#E8398A #CFD8DC;
+    scrollbar-color:#2F91FF #CFD8DC;
     /* background-color: #eee;; */
 }
 
@@ -61,21 +66,21 @@ hr{
 }
 
 .file-display-container::-webkit-scrollbar-track{
-    background:#323232;
+    background:#2D2D2D;
     border-radius: 6px;
 }
 
 .file-display-container::-webkit-scrollbar-thumb{
-    background-color: #E8398A;
+    background-color: #2F91FF;
     border-radius: 6px;
-    border: 2px solid #323232;
+    border: 2px solid #2D2D2D;
 }
 
 .fileCard{
     position: static;
     margin-bottom: 10px;
     cursor: pointer;
-    background-color: #373737;
+    background-color: #2D2D2D;
     border-radius: 10px;
     margin-left: 50px;
 
@@ -91,7 +96,7 @@ hr{
     position: absolute;
     color: white;
     outline: none;
-    background-color: #E8398A; 
+    background-color: #2F91FF; 
 
     font-family: Roboto, sans-serif;
     margin-top: 40px;
@@ -103,7 +108,11 @@ hr{
 
 }
 .file-upload-btn:hover{
-    opacity: 0.78;
+    background-color: #429BFF;
+}
+
+.file-upload-btn:focus{
+    background-color: #6BB1FF;
 }
 
 .container {
@@ -121,9 +130,9 @@ hr{
     justify-content: center;
     width: 400px;
     height: 350px;
-    border: 4px dashed #2C2C2C;
+    border: 4px dashed #323232;
     border-radius: 10px;
-    background-color: #353535;
+    background-color: #2D2D2D;
     cursor: pointer;
     margin-right: 100px;
 
@@ -138,7 +147,7 @@ hr{
     margin: 0 auto;
     padding-top: 30px;
     margin-bottom: 20px;
-    filter: invert(52%) sepia(83%) saturate(5338%) hue-rotate(310deg) brightness(93%) contrast(96%);
+    filter: invert(48%) sepia(37%) saturate(3239%) hue-rotate(193deg) brightness(100%) contrast(103%);
 }
 .DragMessage {
     color: #999999;
@@ -216,7 +225,7 @@ hr{
     display: inline-block;
     vertical-align:top;
     margin-left: 60px;
-    color: #4aa1f3;
+    color: #2F91FF;
     margin-top: 20px;
     font-size: 16px;
 }
@@ -239,11 +248,8 @@ hr{
     background-size: 100%;
     position: absolute;
     margin-top: 20px;
+    filter: invert(48%) sepia(37%) saturate(3239%) hue-rotate(193deg) brightness(100%) contrast(103%);
     margin-left: -5px; 
-}
-
-.file-type-logo:hover {
-    filter: invert(77%) sepia(31%) saturate(682%) hue-rotate(281deg) brightness(100%) contrast(102%);
 }
 
 .file-size {
@@ -251,7 +257,7 @@ hr{
     display:inline-block;
     vertical-align:top;
     right: 80px;
-    color: #FFFFFF;
+    color: #999999;
     font-size: 14px;
     margin-top: 22px;
 
@@ -265,12 +271,12 @@ hr{
     cursor: pointer;
     background: url('./img/cancel.svg') no-repeat center center;
     width: 35px;
-    filter: invert(64%) sepia(7%) saturate(24%) hue-rotate(81deg) brightness(95%) contrast(85%);
+    filter: invert(99%) sepia(77%) saturate(191%) hue-rotate(203deg) brightness(109%) contrast(92%);
     height: 35px;
     margin-top: 7px;
 }
 .file-remove:hover {
-    filter: invert(32%) sepia(53%) saturate(3954%) hue-rotate(313deg) brightness(97%) contrast(87%);
+    filter: invert(53%) sepia(74%) saturate(3924%) hue-rotate(195deg) brightness(102%) contrast(100%);
 }
 
 
@@ -328,26 +334,40 @@ hr{
     position: fixed;
     top: 15px;
     right: 35px;
-    color: #f1f1f1;
     cursor: pointer;
     background: url('./img/cancel.svg') no-repeat center center;
     width: 50px;
     height: 50px;
-    filter: invert(52%) sepia(83%) saturate(5338%) hue-rotate(310deg) brightness(93%) contrast(96%);
-    /* transition: 0.3s; */
+    filter: invert(99%) sepia(5%) saturate(6%) hue-rotate(54deg) brightness(106%) contrast(98%);
 }
+
+.close:hover{
+    filter: invert(53%) sepia(74%) saturate(3924%) hue-rotate(195deg) brightness(102%) contrast(100%);
+}
+
+.close:focus{
+    filter: invert(71%) sepia(38%) saturate(4413%) hue-rotate(189deg) brightness(102%) contrast(111%);
+}
+
 .close2{
     position: fixed;
     top: 15px;
     right: 35px;
-    color: #f1f1f1;
     cursor: pointer;
     background: url('./img/cancel.svg') no-repeat center center;
     width: 50px;
     height: 50px;
-    filter: invert(52%) sepia(83%) saturate(5338%) hue-rotate(310deg) brightness(93%) contrast(96%);
+    filter: invert(99%) sepia(5%) saturate(6%) hue-rotate(54deg) brightness(106%) contrast(98%);
     z-index: 2;
 }
+.close2:hover{
+    filter: invert(53%) sepia(74%) saturate(3924%) hue-rotate(195deg) brightness(102%) contrast(100%);
+}
+
+.clos2:focus{
+    filter: invert(71%) sepia(38%) saturate(4413%) hue-rotate(189deg) brightness(102%) contrast(111%);
+}
+
 .upload-modal {
     z-index: 999;
     display: none;
@@ -387,12 +407,12 @@ hr{
 }
 
 .progress-container {
-    background:#373737;
+    background:#222222;
     width: 500px;
     height: 150px;
     position: absolute;
     top: 40%;
-    left: 50%;
+    left: 48%;
     transform: translate(-50%,-50%);
     overflow: hidden;
     border-radius: 5px;
@@ -414,20 +434,20 @@ hr{
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background-color: #323232;
+    background-color: #2C2C2C;
     height: 20px;
     border-radius: 5px;
 }
 
 .progress-bar {
     position: absolute;
-    background-color: #E8398A;
+    background-color: #2F91FF;
     height: 20px;
     border-radius: 5px;
     text-align: center;
     color: white;
     /* font-weight: bold; */
-    border-color: #E8398A;
+    border-color: #2F91FF;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -439,7 +459,7 @@ hr{
     color: #FFFFFF;
     font-size: 20px;
     position: absolute;
-    color: #E8398A;
+    color: #2F91FF;
     margin-top: 15px;
 
 }
@@ -447,7 +467,7 @@ hr{
     position: absolute;
     height: 10px;
     width: 10px;
-    background-color: #E8398A;
+    background-color: #2F91FF;
     border-radius: 50%;
     display: inline-block;
     margin-bottom: 20px;

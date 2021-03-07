@@ -11,7 +11,10 @@ const Example = ({ boxes, changeshows, imgs }) => {
                 trigger={() => <button>Print this out!</button>}
                 content={() => componentRef.current}
             />
-            <ComponentToPrint ref={componentRef} boxes={boxes} imgs={imgs}/>
+            <div>
+            {/* <div style={{ display: "none" }} > */}
+                <ComponentToPrint ref={componentRef} boxes={boxes} imgs={imgs}/>
+            </div>
         </div>
     );
 };

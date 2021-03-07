@@ -32,7 +32,7 @@
   top: 20px;
   height: 600px;
   width: 1000px;
-  background-color: #242424;
+  background-color: #222222;
   left: 17vw;
 
   
@@ -40,10 +40,10 @@
 
 .landing1 .card-header{
   font-size: 24px;
-  color: #E8398A;
+  color: #2F91FF;
   text-align: center;
   margin-bottom: 330px;  
-  background-color: #2C2C2C;  
+  background-color: #272727;  
 }
 
 .card-body{
@@ -87,12 +87,11 @@
 
 }
 .head-tab{
-  /* position: absolute; */
   width: 1700px;
   height: 80px;
   top: 0px;
   left: 0px;
-  background-color: #2C2C2C;
+  background-color: #272727;
 }
 
 /* .upload-txt{
@@ -115,15 +114,13 @@
   height: 45px;
   background-color:#2C2C2C ;
   border-radius: 5px 5px 0px 0px;
-  /* color: #E8398A; */
-
 }
 
 .history-txt{
   margin-top: 3px;
   margin-left: 10px;
   font-size: 24px;
-  color: #E8398A;
+  color: #2F91FF;
 }
 
 .recent-txt{
@@ -137,7 +134,7 @@
 .history-tab{
   width:380px;
   height:400px;
-  background-color: #E8398A;
+  background-color: #2F91FF;
 }
 
 .recent-txt hr{
@@ -150,7 +147,7 @@
     width: 380px;
     height: 460px;
     scrollbar-width: thin;
-    scrollbar-color:#E8398A #CFD8DC;
+    scrollbar-color:#2F91FF #CFD8DC;
     left: 20px;
 }
 
@@ -164,7 +161,7 @@
 }
 
 .history-display-container::-webkit-scrollbar-thumb{
-  background-color: #E8398A;
+  background-color: #2F91FF;
   border-radius: 6px;
   border: 2px solid #323232;
 }

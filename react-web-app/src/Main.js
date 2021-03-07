@@ -1,8 +1,8 @@
 import App from './App';
 import Home from './Home';
 import Display from './Display';
-import React, { useState } from 'react';
 import Pdf from './Pdf';
+import React, { useState } from 'react';
 
 function Main() {
     const [box,setBox] = useState([]);

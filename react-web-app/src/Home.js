@@ -15,6 +15,7 @@ function Home({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,change
   useEffect(()=>{
     axios.get('http://127.0.0.1:8000/getall').then((res)=>{
       changeboxes(res.data);
+      console.log("get data");
     })
   },[imgs])
 

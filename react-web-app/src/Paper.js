@@ -40,7 +40,7 @@ function Paper({confi,counter,nowbox,dl,d0,d1,d2,d3,d4,d5,d6,d7,size}) {
       ctx.stroke();
     }
     if (confi == -5){
-      return <canvas ref={canvas} style={{border:'1px solid #999999',position:'absolute',left:0} } ></canvas> 
+      return <canvas ref={canvas} style={{border:'1px solid #999999',position:'absolute',left:-50,marginLeft:50} } ></canvas> 
     }
     return (
         <canvas ref={canvas} style={{border:'1px solid #999999',position:'absolute', zIndex:1 , marginTop:"5vh"}} ></canvas> 
