@@ -22,7 +22,7 @@
   background-attachment: fixed;
   background-position: top center;
   background-size: cover; /* or 100% 100% */
-  height: 116vh;
+  height: 100vh;
 
 }
 .navbar{
@@ -41,7 +41,7 @@
 .nav-logo1{
   /* margin-right: 10px; */
   position: absolute;
-  margin-top: 12px;
+  margin-top: 25px;
   margin-left:20px;
   width: 25px;
   height: 25px;
@@ -108,9 +108,11 @@
   width: auto;
   height: 800px;
   align-content: center;
-  margin-top: 5vh;
+  margin-top: 2vh;
   padding-right: 5vh;
   position: absolute;
+  margin-left: -150px;
+  /* left: 100px; */
 }
 
 .ex-box{
@@ -154,7 +156,7 @@ right: 130px;
 
 .file-name-bar{
   width: 23.5rem;
-  height: 50px;
+  height: 70px;
   background-color: #272727;
   margin-bottom: 20px;
   text-align: center;
@@ -165,7 +167,7 @@ right: 130px;
 
 .file-name-txt{
   position: absolute;
-  margin-top: 15px;
+  margin-top: 25px;
   left: 40px;
   margin-left: 36px;
 }
@@ -179,10 +181,11 @@ right: 130px;
   border-radius: 10px;
   margin-left: 28px;
   margin-top: 0px;
-  top: 620px;
+  top: 760px;
   outline: none;
   border: 0px;
   font-size: 24px;
+  font-weight: bold;
 }
 .Dowload-btn:hover{
   background-color: #429BFF;
@@ -203,8 +206,8 @@ right: 130px;
   height: 30px;
   background: url("./img/left.svg") no-repeat center center;
   filter: invert(53%) sepia(62%) saturate(4082%) hue-rotate(193deg) brightness(101%) contrast(101%);
-  margin-left: -120px;
-  margin-top: 24%;
+  margin-left: -115px;
+  margin-top: 18%;
   cursor: pointer;
   opacity: 0.7;
   transform: rotate(90deg);
@@ -217,38 +220,37 @@ right: 130px;
 .range-txt{
   position: fixed;
   font-size: 24px;
-  margin-left: -130px;
-  margin-top: 40%;
+  margin-left: -120px;
+  margin-top: 64%;
 }
 
 .slider {
   position: fixed;
   -webkit-appearance: none;
-  /* width: 100%; */
-  height: 25px;
-  background: white;
-  border-radius: 50px;
+  width: 570px;
+  height: 10px;
+  background: #323232;
+  border-radius: 6px;
   outline: none;
   transform: rotate(90deg);
-  margin-left: -170px;
-  margin-top: 30%;
+  margin-left: -385px;
+  margin-top: 40%;
 }
 
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 25px;
-  height: 25px;
+  width: 160px;
+  height: 11px;
   background:  #2F91FF;
-  border-radius: 50px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
-  width: 25px;
-  height: 45px;
+  width: 10px;
+  height: 100px;
   background:  #2F91FF;
-  border-radius: 50px;
   cursor: pointer;
 }
 
@@ -258,8 +260,8 @@ right: 130px;
   height: 30px;
   background: url("./img/left.svg") no-repeat center center;
   filter: invert(53%) sepia(62%) saturate(4082%) hue-rotate(193deg) brightness(101%) contrast(101%);
-  margin-left: -120px;
-  margin-top: 36%;
+  margin-left: -115px;
+  margin-top: 60%;
   transform: rotate(-90deg);
   cursor: pointer;
   opacity: 0.7;
@@ -269,9 +271,10 @@ right: 130px;
   opacity: 1;
 }
 .over-flow-check{
+  margin-top: 10px;
  position: absolute;
- height: 530px;
- overflow-y: scroll;
+ height: 650px;
+ /* overflow-y: scroll; */
  width: 22.5rem;
 }
 
@@ -332,7 +335,6 @@ right: 130px;
   display: block;
 }
 
-
 .information-btn1{
   position: absolute;
   width: 60px;
@@ -392,15 +394,18 @@ right: 130px;
 
 
 
-.inform-icon{
+.inform-icon,.info-icon2{
   position: absolute;
   margin-top: 25px;
   margin-left: 20px;
   width: 20px;
   height: 20px;
   background: url("./img/info\ \(1\).svg") no-repeat center center;
-  filter: invert(53%) sepia(8%) saturate(12%) hue-rotate(341deg) brightness(95%) contrast(84%);
   cursor: pointer;
+}
+
+.inform-icon{
+  filter: invert(53%) sepia(8%) saturate(12%) hue-rotate(341deg) brightness(95%) contrast(84%);
 }
 
 .inform-icon:hover{
@@ -408,14 +413,7 @@ right: 130px;
 }
 
 .info-icon2{
-  position: absolute;
-  margin-top: 25px;
-  margin-left: 20px;
-  width: 20px;
-  height: 20px;
-  background: url("./img/info\ \(1\).svg") no-repeat center center;
   filter: invert(53%) sepia(62%) saturate(4082%) hue-rotate(193deg) brightness(101%) contrast(101%);
-  cursor: pointer;
 }
 
 .upload-btn{
@@ -448,7 +446,7 @@ right: 130px;
 .slider-all{
  position: absolute;
  top:-200px;
- margin-left: 940px;
+ margin-left: 850px;
 }
 
 
@@ -474,39 +472,11 @@ right: 130px;
   color:#2F91FF;
 }
 
-.hotspot-img{
+.hotspot-img.bypass-img.veget-img.pid-img.module-img.ss-img.sr-img{
   width: 500px;
   height: 250px;
 }
 
-.bypass-img{
-  width: 500px;
-  height: 250px;
-}
-
-.veget-img{
-  width: 500px;
-  height: 250px;
-}
-
-.pid-img{
-  width: 500px;
-  height: 250px;
-}
-
-.module-img{
-  width: 500px;
-  height: 250px;
-}
-
-.ss-img{
-  width: 500px;
-  height: 250px;
-}
-.sr-img{
-  width: 500px;
-  height: 250px;
-}
 
 .info-txt{
   margin-left: 30px;

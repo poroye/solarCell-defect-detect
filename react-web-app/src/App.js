@@ -208,21 +208,13 @@ function App({ boxes, changeshows, imgs }) {
       </div>);}
   }
 
-  const display = () => { changeshows(2);}
-
-  const inform = () => {
-    informationRef.current.display="block";
-    alert('A');
-  }
   return (
       <Container fluid className="process1">
       <Row>
         <Col sm={5}>
           <div className="checkTab">
             <div className="file-name-bar">
-              <a href="/">
-                  <div className="nav-logo1"></div>
-              </a>
+                  <div className="nav-logo1" onClick={backtohome}></div>
               <span className="file-name-txt">{showname}</span>
             </div>
             <div className="over-flow-check">
@@ -332,7 +324,7 @@ function App({ boxes, changeshows, imgs }) {
 
             <div>
               <ReactToPrint
-                  trigger={() => <button className="Dowload-btn">Print this out!</button>}
+                  trigger={() => <button className="Dowload-btn">Export Report</button>}
                   content={() => componentRef.current}
                   documentTitle="Solar_Panel_Report"
               />
@@ -393,13 +385,10 @@ function App({ boxes, changeshows, imgs }) {
               <div className="info-txt">This is due to a reverse polarity connection which is likely a human error during installation at array box or DC Panel.</div>
             </div>}
           </div>
-          <div className="click-tab">
-            <div onClick={backtohome} className="upload-btn">
-              <div className="upload-logo"></div>
-            </div>
+          <div style={{position:"fixed"}}>
+            <Paper confi={confi} counter={counter.current} nowbox={nowbox} dl={dl} d0={d0} d1={d1} d2={d2} d3={d3} d4={d4} d5={d5} d6={d6} d7={d7} size={800}></Paper>
+            <img className="image-view" src={solarimg.file}></img>
           </div>
-          <Paper confi={confi} counter={counter.current} nowbox={nowbox} dl={dl} d0={d0} d1={d1} d2={d2} d3={d3} d4={d4} d5={d5} d6={d6} d7={d7} size={800}></Paper>
-          <img className="image-view" src={solarimg.file}></img>
           {renderslider()}
         </Col>
       </Row>
