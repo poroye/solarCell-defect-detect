@@ -34,8 +34,6 @@
   width: 1000px;
   background-color: #222222;
   left: 17vw;
-
-  
 }
 
 .landing1 .card-header{
@@ -49,12 +47,6 @@
 .card-body{
   padding-top: 5em; 
   height: 0px;
-}
-
-.landing1 #uploadtxt{
-  color: #FFFFFF;
-  text-align: center;
-  margin-bottom: 20px;
 }
 
 .engCha{
@@ -94,10 +86,6 @@
   background-color: #272727;
 }
 
-/* .upload-txt{
-  
-  margin-left: 30px;
-} */
 
 .history-card{
   position: absolute;

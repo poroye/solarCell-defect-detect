@@ -86,7 +86,7 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
                 } else {
                     files[i]['invalid'] = true;
                     changeimgs(prevArray => [...prevArray, files[i]]);
-                    setErrorMessage('File type not permitted');
+                    setErrorMessage('This file type not permitted');
                     setUnsupportedFiles(prevArray => [...prevArray, files[i]]);
                 }
         }
@@ -222,7 +222,7 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
 
                        
 
-                        <span className="file-size txt" /* ขนาดไฟล์ */>({fileSize(data.size)})</span> {data.invalid && <span className='file-error-message'>({errorMessage})</span>}
+                        <span className="file-size txt" /* ขนาดไฟล์ */>({fileSize(data.size)})</span> {data.invalid && <span className='file-error-message'>{errorMessage}<br></br>Please remove all unsupported files.</span>}
                     </div>
                     <div className="file-remove " onClick={() => removeFile(data.name)}></div>
             </div>
@@ -266,7 +266,6 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
                         <button className="file-upload-pre-btn" disabled>Process</button>
                         {unsupportedFiles.length === 0 && imgs.length && enableemptys ? //Button Upload// 
                         <button className="file-upload-btn" onClick={() => uploadFiles()}>Process</button> : ''} 
-                        {unsupportedFiles.length ? <p>Please remove all unsupported files.</p> : ''}
                     </Col>
                     <Col sm={6}>
                             <span className="Present txt">Your Image</span>
@@ -289,13 +288,11 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
 
             <div className="upload-modal" ref={uploadModalRef}>
                 <div className="overlay2"></div>
-                {/* <div className="close" onClick={(() => closeUploadModal())}></div> */}
                 <div className="progress-container">
                     <span className="txt" ref={uploadRef}></span>
                     <div className="progress">
                         <div className="progress-bar" ref={progressRef}></div>
                     </div>
-                    {/* <div className="loading-txt">loading</div> */}
                 </div>
             </div>
             

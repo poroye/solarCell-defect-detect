@@ -25,19 +25,6 @@
   height: 100vh;
 
 }
-.navbar{
-  margin-left: -15px;
-  width: 3.5rem;
-  height: 100vh;
-  position: fixed;
-  background-color: #373737 ;
-  transition: width 200ms ease;
-  z-index: 2;
-}
-
-.nav-item{
-  margin-bottom: -30px;
-}
 .nav-logo1{
   /* margin-right: 10px; */
   position: absolute;
@@ -47,61 +34,12 @@
   height: 25px;
   background: url("./img/arrow.svg") no-repeat center center;
   filter: invert(53%) sepia(8%) saturate(12%) hue-rotate(341deg) brightness(95%) contrast(84%);
+  cursor: pointer;
 
 }
 
 .nav-logo1:hover{
   filter: invert(53%) sepia(62%) saturate(4082%) hue-rotate(193deg) brightness(101%) contrast(101%);
-}
-
-.navbar-nav{
-  list-style: none;
-  padding:0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  margin-top: -490px;
-  position: fixed;
-  /* align-items: center; */
-}
-
-.nav-link{
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  height: 5rem;
-  color: var(--text-primary);
-  text-decoration: none;
-}
-
-.link-text{
-  display: none;
-  margin-left: 2rem;
-
-}
-.navbar:hover{
-  width:12rem;
-}
-
-.navbar:hover .link-text{
-  display: block;
-}
-
-
-.nav-link:hover{
-  filter: grayscale(0%) opacity(1);
-  background-color: var(--bg-secondary);
-  width: 12rem;
-  height: 5rem;
-  color: white;
-
-}
-
-.line{
-  position: relative;
-  border: 0.5px solid #999999;
-  margin: 0%;
-  width:5rem;
 }
 
 .image-view{
@@ -112,14 +50,6 @@
   padding-right: 5vh;
   position: absolute;
   margin-left: -150px;
-  /* left: 100px; */
-}
-
-.ex-box{
-  width: 0.2rem;
-  height: 40px;
-  background-color: #2F91FF;
-  visibility: hidden;
 }
 
 .check-tab{
@@ -196,27 +126,6 @@ right: 130px;
 }
 
 
-.Dowload-btn:hover{
-  opacity: 0.8;
-}
-
-.left-but{
-  position: fixed;
-  width: 30px;
-  height: 30px;
-  background: url("./img/left.svg") no-repeat center center;
-  filter: invert(53%) sepia(62%) saturate(4082%) hue-rotate(193deg) brightness(101%) contrast(101%);
-  margin-left: -115px;
-  margin-top: 18%;
-  cursor: pointer;
-  opacity: 0.7;
-  transform: rotate(90deg);
-}
-
-.left-but:hover{
-  opacity: 1;
-}
-
 .range-txt{
   position: fixed;
   font-size: 24px;
@@ -254,27 +163,32 @@ right: 130px;
   cursor: pointer;
 }
 
-.right-but{
+.left-but,.right-but{
   position: fixed;
   width: 30px;
   height: 30px;
   background: url("./img/left.svg") no-repeat center center;
   filter: invert(53%) sepia(62%) saturate(4082%) hue-rotate(193deg) brightness(101%) contrast(101%);
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.left-but{
+  margin-left: -115px;
+  margin-top: 18%;
+  transform: rotate(90deg);
+}
+
+.right-but{
   margin-left: -115px;
   margin-top: 60%;
   transform: rotate(-90deg);
-  cursor: pointer;
-  opacity: 0.7;
 }
 
-.right-but:hover{
-  opacity: 1;
-}
 .over-flow-check{
   margin-top: 10px;
  position: absolute;
  height: 650px;
- /* overflow-y: scroll; */
  width: 22.5rem;
 }
 
@@ -298,101 +212,39 @@ right: 130px;
   margin-left: 82%;
 }
 
-.drop-logo{
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  background: url("./img/download.svg") no-repeat center center;
-  filter: invert(56%) sepia(0%) saturate(1813%) hue-rotate(203deg) brightness(87%) contrast(81%);
-  left:  265px;
-  margin-top: 24px;
-}
-
-.information-tab{
-  margin-left: 28px;
-  width:300px;
-  height:60px;
-  background-color: #343434;
-  color: white;
-  border-radius: 5px;
-  position: relative;
-  margin-bottom: 10px;
-  cursor: pointer;
-  display: inline-block;
-}
-
-.dropdown-content{
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 300px;
-  overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content span{
-  display: block;
-}
-
-.information-btn1{
+.information-btn1,.information-btn2,.information-btn3,.information-btn4,.information-btn5,.information-btn6,.information-btn7{
   position: absolute;
   width: 60px;
   height: 60px;
   right: 0px;
+}
+
+.information-btn1{
   top: 70px;
 }
 
 .information-btn2{
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  right: 0px;
   top: 140px;
 }
 
 .information-btn3{
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  right: 0px;
   top: 210px;
 }
 
 .information-btn4{
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  right: 0px;
   top: 280px;
 }
 
 .information-btn5{
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  right: 0px;
   top: 350px;
 }
 
 .information-btn6{
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  right: 0px;
   top: 420px;
 }
 .information-btn7{
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  right: 0px;
   top: 490px;
 }
-
-
-
-
 
 .inform-icon,.info-icon2{
   position: absolute;
@@ -408,39 +260,8 @@ right: 130px;
   filter: invert(53%) sepia(8%) saturate(12%) hue-rotate(341deg) brightness(95%) contrast(84%);
 }
 
-.inform-icon:hover{
+.inform-icon:hover,.info-icon2{
   filter: invert(53%) sepia(62%) saturate(4082%) hue-rotate(193deg) brightness(101%) contrast(101%);
-}
-
-.info-icon2{
-  filter: invert(53%) sepia(62%) saturate(4082%) hue-rotate(193deg) brightness(101%) contrast(101%);
-}
-
-.upload-btn{
-  width: 100px;
-  height: 100px;
-  position: fixed;
-  margin-top: 590px;
-  margin-left: 75px;
-  background-color: #2F91FF;
-  border-radius: 50%;
-  display: inline-block;
-  text-align: center;
-  cursor: pointer;
-}
-
-.upload-btn:hover{
-  opacity: 0.8;
-}
-
-.upload-logo{
-  position: absolute;
-  top:25px;
-  left:25px;
-  width: 50px;
-  height: 50px;
-  background: url("./img/cloud-computing.svg") no-repeat center center;
-  filter: invert(98%) sepia(8%) saturate(62%) hue-rotate(281deg) brightness(115%) contrast(100%);
 }
 
 .slider-all{
@@ -448,7 +269,6 @@ right: 130px;
  top:-200px;
  margin-left: 850px;
 }
-
 
 .info-content1{
   position: fixed;
@@ -472,21 +292,12 @@ right: 130px;
   color:#2F91FF;
 }
 
-.hotspot-img.bypass-img.veget-img.pid-img.module-img.ss-img.sr-img{
+.hotspot-img,.bypass-img,.veget-img,.pid-img,.module-img,.ss-img,.sr-img{
   width: 500px;
   height: 250px;
 }
 
-
 .info-txt{
   margin-left: 30px;
   margin-right: 30px;
-}
-
-.click-tab{
-  position: fixed;
-  width: 230px;
-  height:800px;
-  left: 410px;
-  background-color: #2C2C2C;
 }

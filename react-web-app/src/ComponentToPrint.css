@@ -9,81 +9,47 @@
 }
 
 .print-des-txt{
-    /* position: ; */
     margin-left: 40px;
     margin-top: 5px;
     margin-bottom: 20px;
 }
 
-.by-circle{
+.by-circle,.hot-circle,.veg-circle,.mod-circle,.pid-circle,.ss-circle,.sr-circle{
     position: absolute;
     width: 20px;
     height: 20px;
     border-radius: 50%;
     display: inline-block;
-    background-color: #0F01C6;
     margin-right: 10px;
-    
+}
+
+.by-circle{
+    background-color: #0F01C6;
 }
 
 .hot-circle{
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    display: inline-block;
     background-color: #FF0000;
-    margin-right: 10px;
 }
 
 .veg-circle{
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    display: inline-block;
     background-color: #059908;
-    margin-right: 10px;
 }
 
 .pid-circle{
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    display: inline-block;
     background-color: #8E0CFF;
-    margin-right: 10px;
 }
 
 .mod-circle{
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    display: inline-block;
     background-color: #FF8B00;
-    margin-right: 10px;
 }
 
 .ss-circle{
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    display: inline-block;
     background-color: #00FF76;
-    margin-right: 10px;
 }
 
 .sr-circle{
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    display: inline-block;
     background-color: #FF66EC;
-    margin-right: 10px;
+
 }
 
 .table-print{
@@ -104,7 +70,6 @@ table {
 .Display-container{
     position: relative;
     text-align: left;
-    /* color: black; */
 }
 
 .paper{
@@ -113,12 +78,10 @@ table {
     left: 12px;
 }
 
-
 .racklist{
     position: absolute;
     top: 0px;
     left: 12px;
     color: white;
     font-weight: bold;
-   /* font-weight: 300; */
   }

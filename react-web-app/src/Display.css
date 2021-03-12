@@ -26,7 +26,6 @@
 }
 
 .rack-des-tjxt{
-    /* float: left; */
     width: 500px;
 }
 
@@ -40,13 +39,4 @@
   left: 10px;
   color: black;
   font-weight: bold;
- /* font-weight: 300; */
-}
-
-.paper{
-    /* position: absolute;
-    width: 300px;
-    height: 300px;
-    top:-70px;
-    margin-left:50px; */
 }
