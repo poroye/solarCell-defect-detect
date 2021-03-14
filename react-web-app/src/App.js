@@ -5,7 +5,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Switch from 'react-switch';
-import  Alert  from "react-bootstrap/Alert";
 import bypassInfor from './img/Bypass-infor.jpg';
 import hotspotInfor from './img/Hotspots-info.jpg';
 import vegInfor from './img/veg.jpg';
@@ -45,7 +44,6 @@ function App({ boxes, changeshows, imgs }) {
       if (item[0] == solarimg.filename){
         document.title = solarimg.filename;
         setShowname(solarimg.filename);
-        console.log("match first = ",solarimg.filename)
         return item; 
       }
       else{
@@ -89,7 +87,7 @@ function App({ boxes, changeshows, imgs }) {
       if(item[1]==4 && item[2] > confi){setD4n(prev => parseInt(prev)+1);}
       if(item[1]==5 && item[2] > confi){setD5n(prev => parseInt(prev)+1);}
       if(item[1]==6 && item[2] > confi){setD6n(prev => parseInt(prev)+1);}
-      if(item[1]==7 && item[2] > confi){setD7n(prev => parseInt(prev)+1);}
+      if(item[1]==7 && item[2] > 0){setD7n(prev => parseInt(prev)+1);}
     });
   },[counter.current]);
 
@@ -110,9 +108,6 @@ function App({ boxes, changeshows, imgs }) {
     }
 }
 
-    // const infoClick=()=>{
-    //   console.log("bug");
-    // }
   ////////////I/////////////////////////////////////////////////////////////
   function Updateimg() {
     solarimg = {file: URL.createObjectURL(imgs[counter.current]),filename: imgs[counter.current].name};
@@ -175,7 +170,6 @@ function App({ boxes, changeshows, imgs }) {
     else {srsty.current = {background: "#898989"};}
   });
 
-
   const togglel = (checked) => {
     if(d0n>0 || d1n>0 || d2n>0 || d3n>0 || d4n>0 || d5n>0 || d6n>0){
       setDl(prev => !prev);
@@ -214,7 +208,7 @@ function App({ boxes, changeshows, imgs }) {
         <Col sm={5}>
           <div className="checkTab">
             <div className="file-name-bar">
-                  <div className="nav-logo1" onClick={backtohome}></div>
+              <div className="nav-logo1" onClick={backtohome}></div>
               <span className="file-name-txt">{showname}</span>
             </div>
             <div className="over-flow-check">
@@ -320,23 +314,16 @@ function App({ boxes, changeshows, imgs }) {
                   <Switch onColor="#FFD800" onHandleColor="#FFFFFF" uncheckedIcon={false} checkedIcon={false} onChange={something} checked={d7} disabled = {d7n==0} className="react-switch" height={18} width={36}/>
               </div>
             </div>
-
-
             <div>
               <ReactToPrint
                   trigger={() => <button className="Dowload-btn">Export Report</button>}
                   content={() => componentRef.current}
                   documentTitle="Solar_Panel_Report"
               />
-              {/* <div> */}
               <div style={{ display: "none" }} >
                   <ComponentToPrint ref={componentRef} boxes={boxes} imgs={imgs}/>
               </div>
             </div>
-
-
-
-
           </div> 
         </Col>
         <Col sm={7}>

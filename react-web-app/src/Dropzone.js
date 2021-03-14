@@ -168,9 +168,11 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
             .catch(() => {
                 uploadRef.current.innerHTML = `<span class="error">Error Uploading File(s)</span>`;
                 progressRef.current.style.backgroundColor = 'red';
-            }).then(res => {
-                
+            }).then(res => {                
                 res.data.map((defect) =>{
+                    if (defect[1][0] == 9){
+                        alert(defect[0] + " is not solar thermography image or not pass orthophoto process")
+                    }
                     if(boxes == []){
                         changeboxes(defect)
                     }
@@ -212,16 +214,12 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
 
     const showimage = () => {
         return imgs.map((data, i) =>
-        <div className="fileCard" style={{width: '440px',height:'90px'}} /*กรอบคลุม */> 
-            <div className="file-status-bar" key={i}>
+        <div className="fileCard" style={{width: '440px',height:'90px'}} /*กรอบคลุม */ key={i}> 
+            <div className="file-status-bar" >
                     <div className="file-status" onClick={!data.invalid ? () => openImageModal(data) : () => removeFile(data.name)} /* Click แล้วแสดงภาพตัวอย่าง */>
                         <div className="file-type-logo" /* logo ภาพ */></div>
-
                         {!checkimg(data) ? <span className={`file-name txt ${data.invalid ? 'file-error' : ''}`}/*ชื่อไฟล์ */>{data.name}</span>:
                         <span className={`file-name txt ${data.invalid ? 'file-error' : ''}`}/*ชื่อไฟล์ */ style={{color:"green"}}>{data.name}</span>}
-
-                       
-
                         <span className="file-size txt" /* ขนาดไฟล์ */>({fileSize(data.size)})</span> {data.invalid && <span className='file-error-message'>{errorMessage}<br></br>Please remove all unsupported files.</span>}
                     </div>
                     <div className="file-remove " onClick={() => removeFile(data.name)}></div>

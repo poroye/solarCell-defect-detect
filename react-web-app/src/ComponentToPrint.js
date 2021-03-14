@@ -7,7 +7,7 @@ import { createEvent } from "@testing-library/dom";
 import gunkul from './img/download.jfif';
 export class ComponentToPrint extends React.PureComponent {
     
-    imglist = this.props.imgs.map(item => {
+    imglist = this.props.imgs.map((item,p) => {
         var filterbox = this.props.boxes.filter(box =>{
             if (item.name == box[0] && box[1] != 7){
                 return box
@@ -16,21 +16,20 @@ export class ComponentToPrint extends React.PureComponent {
 
         var numrack = 0;
         for(var i = 0;i<this.props.boxes.length;i++){
-            if(this.props.boxes[i][0] == item.name && this.props.boxes[i][1] == 7 && this.props.boxes[i][4][0] > numrack){
-                 numrack = parseInt(this.props.boxes[i][4][0])
+            if(this.props.boxes[i][0] == item.name && this.props.boxes[i][1] == 7){
+                 numrack = parseInt(numrack) + 1;
             }
         }
 
-        var racklist = this.props.boxes.map( box => {
+        var racklist = this.props.boxes.map( (box,i) => {
             if (item.name == box[0]){
                 var cX = box[3][0]//+(box[3][2]/2);
                 var cY = box[3][1]//+(box[3][3]/2); 
                 if (box[1] == 7) {
                     cX = (cX*400)
-                    cY = (cY*400)-50
+                    cY = (cY*400)
                     return (
-                        <span className="rack-des-tjxt" style={{top:cY , left:cX, position:'absolute', float:"left",width:'400px',color:"white"}}>{parseInt(box[4])+1}</span>
-                        // <span>{box[4]}</span>
+                        <span key={i} className="rack-des-tjxt" style={{top:cY , left:cX, position:'absolute', float:"left",width:'400px',color:"white"}}>{parseInt(box[4])+1}</span>
                     )
                 }
             }
@@ -69,9 +68,9 @@ export class ComponentToPrint extends React.PureComponent {
             }
         }
 
-        var tablevalue = tablerack.map(value =>{
+        var tablevalue = tablerack.map((value,i) =>{
             return(
-                <tr>
+                <tr key={i}>
                     <td style={{border:"1px solid black"}}>{value[0]+1}</td>
                     <td style={{border:"1px solid black"}}>{value[1]}</td>
                     <td style={{border:"1px solid black"}}>{value[2]}</td>
@@ -86,12 +85,12 @@ export class ComponentToPrint extends React.PureComponent {
 
 
 
-        return <div style={{padding:50}}>
-            <h1 style={{fontWeight:"bold",marginBottom:30,fontSize:24,textAlign:"center"}}>{item.name} have {numrack+1} rack</h1>
+        return <div style={{padding:50}} key={p}>
+            <h1 style={{fontWeight:"bold",marginBottom:30,fontSize:24,textAlign:"center"}}>{item.name} have {numrack} rack</h1> 
             <>
                 <Col sm={7}>
                     <div className="Display-container">
-                        <img src={URL.createObjectURL(item)} className="display-img"></img>
+                        <img src={URL.createObjectURL(item)} className="display-img" style={{height:400}}></img>
                         <Paper className ="paper" confi={-5} counter={0} nowbox={filterbox} dl={true} d0={true} d1={true} d2={true} d3={true} d4={true} d5={true} d6={true} d7={true} size={400}></Paper>
                         <div className="racklist"> {racklist}</div>
                     </div>
@@ -111,14 +110,16 @@ export class ComponentToPrint extends React.PureComponent {
             </>
             <table className="table-print" style={{border:"1px solid black"}}>
                 <thead style={{border:"1px solid black"}}>
-                    <th style={{border:"1px solid black"}}>rack</th>
-                    <th style={{border:"1px solid black"}}>bypass diote</th>
-                    <th style={{border:"1px solid black"}}>hotspot</th>
-                    <th style={{border:"1px solid black"}}>vegetation</th>
-                    <th style={{border:"1px solid black"}}>PID</th>
-                    <th style={{border:"1px solid black"}}>module hot</th>
-                    <th style={{border:"1px solid black"}}>string short</th>
-                    <th style={{border:"1px solid black"}}>string reverse</th>
+                    <tr>
+                        <th style={{border:"1px solid black"}}>rack</th>
+                        <th style={{border:"1px solid black"}}>bypass diote</th>
+                        <th style={{border:"1px solid black"}}>hotspot</th>
+                        <th style={{border:"1px solid black"}}>vegetation</th>
+                        <th style={{border:"1px solid black"}}>PID</th>
+                        <th style={{border:"1px solid black"}}>module hot</th>
+                        <th style={{border:"1px solid black"}}>string short</th>
+                        <th style={{border:"1px solid black"}}>string reverse</th>
+                    </tr>
                 </thead>
                 <tbody style={{border:"1px solid black"}}>
                     {tablevalue}

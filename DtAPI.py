@@ -4,10 +4,15 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 import shutil
 import os
-
-import PyPDF2
-import aiofiles
 from math import sqrt
+
+import pymongo
+from pymongo import MongoClient
+import aiofiles
+
+client = pymongo.MongoClient("mongodb+srv://Thanapon:shinchang69@cluster0.vov1m.mongodb.net/mydb?retryWrites=true&w=majority")
+db = client["mydb"]
+col = db["defect"]
 
 defectcfg = r"C:\Users\PON\Desktop\API\solardefect.cfg"
 defectweight = r"C:\Users\PON\Desktop\API\7700_9984.weights"
@@ -17,7 +22,7 @@ rackcfg = r"C:\Users\PON\Desktop\API\rack.cfg"
 rackweight = r"C:\Users\PON\Desktop\API\custom-yolov4-detector_best.weights"
 racknamelist = r"C:\Users\PON\Desktop\API\objrack.names"
 
-fakedb = []
+# fakedb = []
 
 def detectbox(imgPath, CFG, WEIGHT):
     net = cv.dnn_DetectionModel(CFG, WEIGHT)
@@ -30,7 +35,6 @@ def detectbox(imgPath, CFG, WEIGHT):
     classes, confidences, boxes = net.detect(
         frame, confThreshold=0.1, nmsThreshold=0.4)
     return classes, confidences, boxes
-
 
 def addracks(foundlist, classlist, confidentlist, boxlist, w, h, name):
     racklist = []
@@ -61,8 +65,8 @@ def addracks(foundlist, classlist, confidentlist, boxlist, w, h, name):
 
     while len(classlist) > 0:
         foundlist.append([name,classlist.pop(),confidentlist.pop(),boxlist.pop(),racklist.pop()])
-    for i in foundlist:
-        fakedb.append(i)
+    # for i in foundlist:
+    #     fakedb.append(i)
     return foundlist
 
 def adddefects(foundlist, classlist, confidentlist, boxlist, w, h, name):
@@ -84,10 +88,9 @@ def adddefects(foundlist, classlist, confidentlist, boxlist, w, h, name):
         racklist.append([minindx])
     while len(classlist) > 0:
         foundlist.append([name,classlist.pop(),confidentlist.pop(),boxlist.pop(),racklist.pop()])
-    for i in foundlist:
-        fakedb.append(i)
+    # for i in foundlist:
+    #     fakedb.append(i)
     return foundlist
-
 
 app = FastAPI()
 origins = [
@@ -103,58 +106,63 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 @app.get("/")
 def root():
     return {"its", " WWWoooorrrkkk!!"}
 
-
-@app.post("/test")
+@app.post("/testfastspi")
 def test(name: str, gender: str):
     return {"nam": name}
-
-@app.post("/word")
-def test(name: str):
-    file_Path = "C:/Users/PON/Desktop/API/test.doc"
-    pdfFileObj = open(file_Path, 'rb') 
-    return Response(content=pdfFileObj, media_type="application/msword")
-
-@app.get("/download")
-def downlaod_file():
-    file_path = "C:/Users/PON/Desktop/API/readme.txt"
-    return FileResponse(file_path)
 
 @app.post("/uploadfile/")  # upload display file name work
 async def create_upload_file(file: UploadFile = File(...)):
     return {"filename": file.filename}
 
-@app.get("/getall")
-def datab():
-    return fakedb
+# @app.get("/getall")
+# def datab():
+#     return fakedb
+
+@app.get("/checkDb")
+def checkdb():
+    ans = []
+    for item in col.find():
+        ans.append([item["name"],item["classlist"],item["confi"],item["box"],item["rack"]])
+    return ans
+
+@app.get("/clearAllDb")
+def delalldb():
+    x = col.delete_many({})
+    return str(x.deleted_count) + "data have been delete"
 
 @app.post("/uploadAndDisplay")  # upload image and return image work
 async def image_endpoint(file: UploadFile = File(...)):
     contents = await file.read()
     return Response(content=contents, media_type="image/png")
 
-
 @app.post("/detect")
 async def detect(image: UploadFile = File(...)):
-    with open(image.filename, "wb") as buffer:
+    with open("temp.jpg", "wb") as buffer:
         shutil.copyfileobj(image.file, buffer)
     # with open("temp.png", "wb") as buffer:
     #     shutil.copyfileobj(image.file, buffer)
     # img_Path = "C:/Users/pro/Desktop/project/temp.png"
     # img_Path = r"C:\Users\PON\Desktop\API\temp.png"
+
+    foundlist = []
+
+    for item in col.find({"name":image.filename}):
+        foundlist.append([item["name"],[item["classlist"]],[item["confi"]],[item["box"][0],item["box"][1],item["box"][2],item["box"][3]],[item["rack"]]])
+        # print("found")
+    if len(foundlist) > 0:
+        return foundlist
  
-    img_Path = "C:/Users/PON/Desktop/API/" + image.filename
+    img_Path = "C:/Users/PON/Desktop/API/temp.jpg" #+ image.filename
     imageSize = cv.imread(img_Path)
     w, h = imageSize.shape[:2]
     name = image.filename
-    foundlist = []
     classes, confidences, boxes = detectbox(img_Path, rackcfg, rackweight)
     if len(classes) == 0:
-        return "not found rack"
+        return [[name,[9],[0.1],[0,0,0,0],[0]]]
 
     listclass, listcon, listbox = classes.tolist(), confidences.tolist(), boxes.tolist()
     for i in range(len(listclass)):
@@ -162,9 +170,11 @@ async def detect(image: UploadFile = File(...)):
     foundlist = addracks(foundlist, listclass, listcon, listbox, w, h, name)
     classes, confidences, boxes = detectbox(img_Path, defectcfg, defectweight)
     if len(classes) == 0:
-
+        for found in foundlist:
+            col.insert_one({"name":found[0],"classlist":[found[1][0]],"confi":[found[2][0]],"box":[found[3][0],found[3][1],found[3][2],found[3][3]],"rack":[found[4][0]]})
         return foundlist 
     listclass, listcon, listbox = classes.tolist(), confidences.tolist(), boxes.tolist()
     foundlist = adddefects(foundlist, listclass, listcon, listbox, w, h, name)
-    # print(foundlist)
+    for found in foundlist:
+        col.insert_one({"name":found[0],"classlist":[found[1][0]],"confi":[found[2][0]],"box":[found[3][0],found[3][1],found[3][2],found[3][3]],"rack":[found[4][0]]})
     return foundlist
