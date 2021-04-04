@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import kmitl from './img/Logo_kmitl.png';
 import { createEvent } from "@testing-library/dom";
 import gunkul from './img/download.jfif';
+
 export class ComponentToPrint extends React.PureComponent {
     
     imglist = this.props.imgs.map((item,p) => {
@@ -134,6 +135,7 @@ return (
         <div className="comToPrint">
             <img src={kmitl} style={{width:200,height:200, marginTop:"100px",position:"static",marginLeft:"310px"}}></img>
             <img src={gunkul} style={{width:400,height:200, marginTop:"30px",position:"static",marginLeft:"220px"}}></img>
+            <div style={{fontSize:50,marginTop:"100px",position:"absolute",marginLeft:"200px"}}>Solar Defect Report</div>
             <div style={{pageBreakAfter:"always"}}></div>
             {this.imglist}
         </div>

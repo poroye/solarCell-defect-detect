@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Dropzone from './Dropzone';
 import axios from 'axios';
+import logo from './img/logo.png';
 
 function Home({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,changeenable}) {
 
@@ -19,7 +20,9 @@ function Home({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,change
     <Container fluid className="landing1">
       <Row>
         <Col></Col>
-        <div className="head-tab"></div>
+        <div className="head-tab">
+          <img className="logo" src={logo} width="156px" height="50px" style={{position:"absolute",marginTop:15}}></img>
+        </div>
         <Col>
         <div className="card">
           <div className="card-header">

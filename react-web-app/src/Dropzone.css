@@ -179,11 +179,34 @@ hr{
 }
 
 .file-error-message {
+    border-radius: 10px;
+    width: 440px;
+    height: 90px;
     position: absolute;
-    margin-top: 100px;
+    top:0px;
     font-size: 24px;
-    left: 0px;
-    color: red;
+    left: -20px;
+    background-color: #F8376f;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-top: 22px;
+}
+
+.file-error-message:hover{
+    background-color: #F96089;
+}
+
+
+.error-icon{
+    position: absolute;
+    margin-top: 4px;
+    text-align: center;
+    vertical-align: center;
+    width: 40px;
+    height:40px;
+    background-color: #000000;
+    border-radius: 50%;
+  display: inline-block;
 }
   
 .file-type-logo {
@@ -208,7 +231,7 @@ hr{
 
 }
   
-.file-remove {
+.file-remove,.file-remove2 {
     position: absolute;
     top: 20px;
     right: 15px;
@@ -216,14 +239,21 @@ hr{
     cursor: pointer;
     background: url('./img/cancel.svg') no-repeat center center;
     width: 35px;
-    filter: invert(99%) sepia(77%) saturate(191%) hue-rotate(203deg) brightness(109%) contrast(92%);
     height: 35px;
     margin-top: 7px;
+    border-radius: 5px;
+}
+.file-remove{
+    filter: invert(99%) sepia(77%) saturate(191%) hue-rotate(203deg) brightness(109%) contrast(92%);
 }
 .file-remove:hover {
     filter: invert(53%) sepia(74%) saturate(3924%) hue-rotate(195deg) brightness(102%) contrast(100%);
 }
 
+.file-remove2{
+    z-index: 2;
+    filter: invert(0%) sepia(100%) saturate(7500%) hue-rotate(59deg) brightness(89%) contrast(111%);
+}
 
 
 .modal{
@@ -245,8 +275,8 @@ hr{
 }
 
 .overlay2{
-    top: -100px;
-    left: -295px;
+    top: -125px;
+    left: -277px;
     z-index: 1;
 }
 

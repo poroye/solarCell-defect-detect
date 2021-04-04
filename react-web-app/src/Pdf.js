@@ -3,7 +3,7 @@ import ReactToPrint from 'react-to-print';
 
 import { ComponentToPrint } from './ComponentToPrint';
 
-const Example = ({ boxes, changeshows, imgs }) => {
+const Example = ({ boxes, imgs }) => {
     const componentRef = useRef();
     return (
         <div>

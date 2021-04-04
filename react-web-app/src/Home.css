@@ -14,7 +14,7 @@
   height: 100vh;
 }
 .landing1 .btn {
-  /* border-radius: 5px; */
+  
   height: 57px;
   width: 300px;
   font-size: 24px;
@@ -29,7 +29,7 @@
 
 .landing1 .card{
   display: flexbox;
-  top: 20px;
+  top: 40px;
   height: 600px;
   width: 1000px;
   background-color: #222222;

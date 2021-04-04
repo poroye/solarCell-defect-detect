@@ -71,7 +71,6 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
     const handleFiles = (files) => {
         changeenable(true);
         for(let i = 0; i < files.length; i++) {
-            
                 if (validateFile(files[i])) {
                     let dub = false;
                     for (let j = 0 ; j < imgs.length ; j++){
@@ -86,14 +85,14 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
                 } else {
                     files[i]['invalid'] = true;
                     changeimgs(prevArray => [...prevArray, files[i]]);
-                    setErrorMessage('This file type not permitted');
+                    // setErrorMessage('Can');
                     setUnsupportedFiles(prevArray => [...prevArray, files[i]]);
                 }
         }
     }
 
     const validateFile = (file) => {
-        const validTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+        const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/tiff'];
         if (validTypes.indexOf(file.type) === -1) {
             return false;
         }
@@ -220,7 +219,13 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
                         <div className="file-type-logo" /* logo ภาพ */></div>
                         {!checkimg(data) ? <span className={`file-name txt ${data.invalid ? 'file-error' : ''}`}/*ชื่อไฟล์ */>{data.name}</span>:
                         <span className={`file-name txt ${data.invalid ? 'file-error' : ''}`}/*ชื่อไฟล์ */ style={{color:"green"}}>{data.name}</span>}
-                        <span className="file-size txt" /* ขนาดไฟล์ */>({fileSize(data.size)})</span> {data.invalid && <span className='file-error-message'>{errorMessage}<br></br>Please remove all unsupported files.</span>}
+                        <span className="file-size txt" /* ขนาดไฟล์ */>({fileSize(data.size)})</span> 
+                        {data.invalid && <div className='file-error-message'>
+                            <div className="error-icon"></div>
+                            <div style={{color:"#F8376f",position:"absolute",marginLeft:17}}>!</div>
+                            <div style={{marginLeft:50,position:"absolute",fontSize:18}}>This file type is unsupported.</div>
+                            <div className="file-remove2"></div>
+                        </div>}
                     </div>
                     <div className="file-remove " onClick={() => removeFile(data.name)}></div>
             </div>
@@ -248,7 +253,7 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
                         >
                             <div className="drop-message"> 
                                 <div className="upload-icon" /*Cloud icon*/></div> 
-                                <div className="DragMessage txt">Drag & Drop here<br/>or Browse file(s)</div>
+                                <div className="DragMessage txt">Drag & Drop here<br/>or Browse files</div>
                                 {/* <br/>max resolution <br/>1000 px X 1000 px */}
                             </div>
                             <input
@@ -315,6 +320,9 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
                         <br></br>
                         <div className="dot"></div>
                         <div className="bef-dot">Infrared and orthophoto</div>
+                        <br></br>
+                        <div className="dot"></div>
+                        <div className="bef-dot">Tiff file only support on IE and safari</div>
                     </Col>
                 </Row>
                 </div>
