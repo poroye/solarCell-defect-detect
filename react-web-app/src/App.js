@@ -42,7 +42,7 @@ function App({ boxes, changeshows, imgs }) {
   useEffect(() => {
     temp1box = boxes.map(item => {
       if (item[0] == solarimg.filename){
-        document.title = solarimg.filename;
+        // document.title = solarimg.filename;
         setShowname(solarimg.filename);
         return item; 
       }
@@ -68,7 +68,7 @@ function App({ boxes, changeshows, imgs }) {
   useEffect(() => {
     const temp2box = boxes.map(item => {
       if (item[0] == solarimg.filename){
-        document.title = solarimg.filename;
+        // document.title = solarimg.filename;
         return item; }
       else{return null;}
     }).filter(item => {
@@ -111,7 +111,7 @@ function App({ boxes, changeshows, imgs }) {
   ////////////I/////////////////////////////////////////////////////////////
   function Updateimg() {
     solarimg = {file: URL.createObjectURL(imgs[counter.current]),filename: imgs[counter.current].name};
-    document.title = imgs[counter.current].name;
+    // document.title = imgs[counter.current].name;
     setShowname(imgs[counter.current].name);
     setSlide(counter.current);
     if (d0n > 0){setD0(true);}  if (d1n > 0){setD1(true);} if (d2n > 0){setD2(true);}  if (d3n > 0){setD3(true);}
@@ -200,6 +200,26 @@ function App({ boxes, changeshows, imgs }) {
         </div>
         <div onClick={() => Goright()} className="right-but"></div>
       </div>);}
+  }
+
+  const renderButton = () => {
+
+    let countAll = 0;
+    boxes.map(box => {
+      imgs.map(pic =>{
+        if (box[0] == pic.name && box[1][0] != 9){
+          countAll = countAll + 1;
+        }
+      })
+    })
+    console.log(countAll);
+    if (countAll > 0){
+      return  <button className="Dowload-btn">Export Report</button>
+    }
+    else{
+      return  <button className="Dowload-btn" disabled>Can't Export Report</button>
+    }
+
   }
 
   return (
@@ -316,7 +336,12 @@ function App({ boxes, changeshows, imgs }) {
             </div>
             <div>
               <ReactToPrint
-                  trigger={() => <button className="Dowload-btn">Export Report</button>}
+                  trigger={() => 
+                    
+                    // <button className="Dowload-btn">Export Report</button>
+                    renderButton()
+                  
+                  }
                   content={() => componentRef.current}
                   documentTitle="Solar_Panel_Report"
               />

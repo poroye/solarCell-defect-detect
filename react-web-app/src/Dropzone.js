@@ -218,7 +218,7 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
                     <div className="file-status" onClick={!data.invalid ? () => openImageModal(data) : () => removeFile(data.name)} /* Click แล้วแสดงภาพตัวอย่าง */>
                         <div className="file-type-logo" /* logo ภาพ */></div>
                         {!checkimg(data) ? <span className={`file-name txt ${data.invalid ? 'file-error' : ''}`}/*ชื่อไฟล์ */>{data.name}</span>:
-                        <span className={`file-name txt ${data.invalid ? 'file-error' : ''}`}/*ชื่อไฟล์ */ style={{color:"green"}}>{data.name}</span>}
+                        <span className={`file-name txt ${data.invalid ? 'file-error' : ''}`}/*ชื่อไฟล์ */ style={{color:"#009688"}}>{data.name}</span>}
                         <span className="file-size txt" /* ขนาดไฟล์ */>({fileSize(data.size)})</span> 
                         {data.invalid && <div className='file-error-message'>
                             <div className="error-icon"></div>
@@ -271,12 +271,19 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
                         <button className="file-upload-btn" onClick={() => uploadFiles()}>Process</button> : ''} 
                     </Col>
                     <Col sm={6}>
-                            <span className="Present txt">Your Image</span>
+                            <span className="Present txt">Select image {imgs.length} files </span>
                             {/* <button classname="Example-btn">Example</button> */}
                             <div className="example-btn" onClick={() => openExampleModal()}>Instructions</div>
                             <hr style={{border:'1px solid #FFFFFF'}}></hr> 
                             <div className="file-display-container" /*แสดงชื่อ ขนาดภาพ*/>
                             {showimage()}
+                        </div>
+                        
+                        <div className="descrip">
+                            <span className="Gdot"></span>
+                            <span style={{color:'white',marginLeft:"40px",marginTop:"2px",position:"absolute"}}>Already processed.</span>
+                            <span className="Bdot"></span>
+                            <span style={{color:'white',marginLeft:"290px",marginTop:"2px",position:"absolute",width:"200px"}}>In queue.</span>
                         </div>
                     </Col>
                 </Row>
@@ -298,7 +305,6 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
                     </div>
                 </div>
             </div>
-            
             
 
             <div className="example-modal" ref={exampleRef}>
@@ -322,7 +328,7 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
                         <div className="bef-dot">Infrared and orthophoto</div>
                         <br></br>
                         <div className="dot"></div>
-                        <div className="bef-dot">Tiff file only support on IE and safari</div>
+                        <a href="https://en.wikipedia.org/wiki/Comparison_of_web_browsers#Image_format_support" className="bef-dot" style={{color:"white",textDecoration:"none"}}>Tiff file only support on IE and safari</a>
                     </Col>
                 </Row>
                 </div>

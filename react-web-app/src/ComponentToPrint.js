@@ -8,6 +8,18 @@ import gunkul from './img/download.jfif';
 
 export class ComponentToPrint extends React.PureComponent {
     
+    weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday", "Friday","Saturday"]
+    month = ["january","february","march","april","may","june","july","august","september","october","november","december"]
+
+    d = new Date();
+    day = this.weekday[this.d.getDay()];
+    date = this.d.getDate();
+    month = this.month[this.d.getMonth()];
+    year = this.d.getFullYear();
+    hour = this.d.getHours();
+    min = this.d.getMinutes();
+    second = this.d.getSeconds();
+
     imglist = this.props.imgs.map((item,p) => {
         var filterbox = this.props.boxes.filter(box =>{
             if (item.name == box[0] && box[1] != 7){
@@ -84,7 +96,9 @@ export class ComponentToPrint extends React.PureComponent {
             );
         });
 
-
+        if (numrack == 0){
+            return null
+        }
 
         return <div style={{padding:50}} key={p}>
             <h1 style={{fontWeight:"bold",marginBottom:30,fontSize:24,textAlign:"center"}}>{item.name} have {numrack} rack</h1> 
@@ -136,6 +150,7 @@ return (
             <img src={kmitl} style={{width:200,height:200, marginTop:"100px",position:"static",marginLeft:"310px"}}></img>
             <img src={gunkul} style={{width:400,height:200, marginTop:"30px",position:"static",marginLeft:"220px"}}></img>
             <div style={{fontSize:50,marginTop:"100px",position:"absolute",marginLeft:"200px"}}>Solar Defect Report</div>
+            <div style={{fontSize:25,marginTop:"450px",position:"absolute",marginLeft:"220px"}}>Save on {this.day} {this.date} {this.month} {this.year},{String(this.hour).padStart(2,'0')}:{String(this.min).padStart(2,'0')}:{String(this.second).padStart(2,'0')}</div>
             <div style={{pageBreakAfter:"always"}}></div>
             {this.imglist}
         </div>

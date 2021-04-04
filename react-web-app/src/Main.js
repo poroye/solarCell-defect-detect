@@ -13,6 +13,8 @@ function Main() {
     const changeimg = (newimg) => {setImg(newimg)}
     const changeenable = (value) => {setEnableempty(value)}
 
+    document.title = "Solar Panel Defect Detection"
+
     return(
         <div className="Main">
             {show == 0 && <App boxes={box} changeshows={changeshow} imgs={img} ></App> } 
