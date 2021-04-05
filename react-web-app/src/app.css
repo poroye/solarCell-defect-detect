@@ -248,10 +248,10 @@ right: 130px;
 
 .inform-icon,.info-icon2{
   position: absolute;
-  margin-top: 25px;
+  margin-top: 12px;
   margin-left: 20px;
-  width: 20px;
-  height: 20px;
+  width: 35px;
+  height: 35px;
   background: url("./img/info\ \(1\).svg") no-repeat center center;
   cursor: pointer;
 }

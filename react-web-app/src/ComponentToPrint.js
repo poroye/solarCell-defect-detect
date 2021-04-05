@@ -50,6 +50,13 @@ export class ComponentToPrint extends React.PureComponent {
 
 
         var tablerack = [];
+        let alldiote = 0;
+        let allhotsp = 0;
+        let allveget = 0;
+        let allpid   = 0;
+        let allmodul = 0;
+        let allstsh  = 0;
+        let allstrev = 0; 
 
         for(let j = 0;j<numrack+1;j++){
             let diote = 0;
@@ -71,6 +78,13 @@ export class ComponentToPrint extends React.PureComponent {
                     else if (this.props.boxes[i][1] == 6){strev = parseInt(strev) + 1;}
                 }
             }
+            alldiote = alldiote + diote;
+            allhotsp = allhotsp + hotsp;
+            allveget = allveget + veget;
+            allpid   = allpid + pid;
+            allmodul = allmodul + modul;
+            allstsh  = allstsh + stsh;
+            allstrev = allstrev + strev;
             tablerack.push([j,diote,hotsp,veget,pid,modul,stsh,strev]);
 
         }
@@ -81,7 +95,24 @@ export class ComponentToPrint extends React.PureComponent {
             }
         }
 
+        let skip = 0;
+        if (alldiote == 0){skip = skip + 1;}
+        if (allhotsp == 0){skip = skip + 1;}
+        if (allveget == 0){skip = skip + 1;}
+        if (allpid == 0){skip = skip + 1;}
+        if (allmodul == 0){skip = skip + 1;}
+        if (allstsh == 0){skip = skip + 1;}
+        if (allstrev == 0){skip = skip + 1;}
+        skip = skip * 38;
+
         var tablevalue = tablerack.map((value,i) =>{
+            if(value[1] == 0){value[1] = "-";}
+            if(value[2] == 0){value[2] = "-";}
+            if(value[3] == 0){value[3] = "-";}
+            if(value[4] == 0){value[4] = "-";}
+            if(value[5] == 0){value[5] = "-";}
+            if(value[6] == 0){value[6] = "-";}
+            if(value[7] == 0){value[7] = "-";}
             return(
                 <tr key={i}>
                     <td style={{border:"1px solid black"}}>{value[0]+1}</td>
@@ -112,16 +143,17 @@ export class ComponentToPrint extends React.PureComponent {
                 </Col>
                 <Col sm={5}>
                     <div className="print-container">
-                        <div className="by-circle"></div><div className="print-des-txt">Bypass Diode</div>
-                        <div className="hot-circle"></div><div className="print-des-txt">Hotspots</div>
-                        <div className="veg-circle"></div><div className="print-des-txt">Vegetation</div>
-                        <div className='pid-circle'></div><div className="print-des-txt">PID</div>
-                        <div className="mod-circle"></div><div className="print-des-txt">Module Hot</div>
-                        <div className="ss-circle"></div><div className="print-des-txt">String Short</div>
-                        <div className="sr-circle"></div><div className="print-des-txt">String Reverse</div> 
+                        {alldiote > 0 && <><div className="by-circle"></div><div className="print-des-txt">Bypass Diode</div></>}
+                        {allhotsp > 0 && <><div className="hot-circle"></div><div className="print-des-txt">Hotspots</div></>}
+                        {allveget > 0 && <><div className="veg-circle"></div><div className="print-des-txt">Vegetation</div></>}
+                        {allpid > 0   && <><div className='pid-circle'></div><div className="print-des-txt">PID</div></>}
+                        {allmodul > 0 && <><div className="mod-circle"></div><div className="print-des-txt">Module Hot</div></>}
+                        {allstsh > 0  && <><div className="ss-circle"></div><div className="print-des-txt">String Short</div></>}
+                        {allstrev > 0 && <><div className="sr-circle"></div><div className="print-des-txt">String Reverse</div></>}
+                        <div style={{height:skip}}></div> 
                     </div>
                 </Col>
-                {/* {filterbox} */}
+        
             </>
             <table className="table-print" style={{border:"1px solid black"}}>
                 <thead style={{border:"1px solid black"}}>

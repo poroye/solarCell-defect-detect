@@ -152,7 +152,7 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
 
     const uploadFiles = async () => {
         uploadModalRef.current.style.display = 'block';
-        uploadRef.current.innerHTML = 'loading...';
+        uploadRef.current.innerHTML = 'Processing...';
         let count = 0;
         let max = validFiles.length;
         console.log("count = ",count,"boxes = ",boxes,"valid = ",validFiles,"select = ",imgs);
@@ -218,7 +218,7 @@ const Dropzone = ({boxes,changeboxes,changeshows,imgs,changeimgs,enableemptys,ch
                     <div className="file-status" onClick={!data.invalid ? () => openImageModal(data) : () => removeFile(data.name)} /* Click แล้วแสดงภาพตัวอย่าง */>
                         <div className="file-type-logo" /* logo ภาพ */></div>
                         {!checkimg(data) ? <span className={`file-name txt ${data.invalid ? 'file-error' : ''}`}/*ชื่อไฟล์ */>{data.name}</span>:
-                        <span className={`file-name txt ${data.invalid ? 'file-error' : ''}`}/*ชื่อไฟล์ */ style={{color:"#009688"}}>{data.name}</span>}
+                        <span className={`file-name txt ${data.invalid ? 'file-error' : ''}`}/*ชื่อไฟล์ */ style={{color:"#ff8d00"}}>{data.name}</span>}
                         <span className="file-size txt" /* ขนาดไฟล์ */>({fileSize(data.size)})</span> 
                         {data.invalid && <div className='file-error-message'>
                             <div className="error-icon"></div>

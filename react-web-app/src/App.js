@@ -233,14 +233,14 @@ function App({ boxes, changeshows, imgs }) {
             </div>
             <div className="over-flow-check">
               <div className="check-tab" onClick={togglel}>
-                  {dl ? <span className="defect-txt">All Defect enable</span> : <span className="defect-txt" style={{color:"#777"}}>All Defect disable</span>}
-                  {dl ? <div className="number">{d0n+d1n+d2n+d3n+d4n+d5n+d6n}</div> : <div className="number" style={{color:"#777"}}>{d0n+d1n+d2n+d3n+d4n+d5n+d6n}</div>}
+                  {dl ? <span className="defect-txt">All Defect enable</span> : <span className="defect-txt" style={{color:"#000"}}>All Defect disable</span>}
+                  {dl ? <div className="number">{d0n+d1n+d2n+d3n+d4n+d5n+d6n}</div> : <div className="number" style={{color:"#000"}}>{d0n+d1n+d2n+d3n+d4n+d5n+d6n}</div>}
                   <Switch onColor="#2F91FF" onHandleColor="#FFFFFF" uncheckedIcon={false} checkedIcon={false} onChange={something} checked={dl} className="react-switch" height={18} width={36}/>
               </div>
               <div className="check-tab" onClick={toggle0}>
-                  {d0n > 0 ? <span className="defect-txt">Bypass Diode</span> : <span className="defect-txt" style={{color:"#777"}}>Bypass Diode</span>}
-                  {d0n > 0 ? <div className="number">{d0n}</div> : <div className="number" style={{color:"#777"}}>{d0n}</div>}
-                  <Switch onColor="#0F01C6" onHandleColor="#FFFFFF"  uncheckedIcon={false} checkedIcon={false} onChange={something} checked={d0} disabled = {d0n==0} className="react-switch" height={18} width={36}/>
+                  {d0n > 0 ? <span className="defect-txt">Bypass Diode</span> : <span className="defect-txt" style={{color:"#000"}}>Bypass Diode</span>}
+                  {d0n > 0 ? <div className="number">{d0n}</div> : <div className="number" style={{color:"#000"}}>{d0n}</div>}
+                  {d0n > 0 && <Switch onColor="#0F01C6" onHandleColor="#FFFFFF"  uncheckedIcon={false} checkedIcon={false} onChange={something} checked={d0} disabled = {d0n==0} className="react-switch" height={18} width={36}/> }
               </div>
 
               <div className="information-btn1" ref={informationRef}>
@@ -251,9 +251,10 @@ function App({ boxes, changeshows, imgs }) {
               </div>
 
               <div className="check-tab" onClick={toggle1}>
-                  {d1n > 0 ? <span className="defect-txt">Hotspot</span> : <span className="defect-txt" style={{color:"#777"}}>Hotspot</span>}
-                  {d1n > 0 ? <div className="number">{d1n}</div> : <div className="number" style={{color:"#777"}}>{d1n}</div>}
-                  <Switch onColor="#FF0000" onHandleColor="#FFFFFF"  uncheckedIcon={false} checkedIcon={false} onChange={something} checked={d1} disabled = {d1n==0} className="react-switch" height={18} width={36}/>
+                  {d1n > 0 ? <span className="defect-txt">Hotspot</span> : <span className="defect-txt" style={{color:"#000"}}>Hotspot</span>}
+                  {d1n > 0 ? <div className="number">{d1n}</div> : <div className="number" style={{color:"#000"}}>{d1n}</div>}
+                  {d1n > 0 && <Switch onColor="#FF0000" onHandleColor="#FFFFFF"  uncheckedIcon={false} checkedIcon={false} onChange={something} checked={d1} disabled = {d1n==0} className="react-switch" height={18} width={36}/>
+                }
               </div>
 
               <div className="information-btn2" ref={informationRef}>
@@ -264,9 +265,11 @@ function App({ boxes, changeshows, imgs }) {
               </div>
 
               <div className="check-tab" onClick={toggle2}>
-                  {d2n > 0 ? <span className="defect-txt">Vegetation</span> : <span className="defect-txt" style={{color:"#777"}}>Vegetation</span>}
-                  {d2n > 0 ? <div className="number">{d2n}</div> : <div className="number" style={{color:"#777"}}>{d2n}</div>}
-                  <Switch onColor="#059908" onHandleColor="#FFFFFF" uncheckedIcon={false} checkedIcon={false} onChange={something} checked={d2} disabled = {d2n==0} className="react-switch" height={18} width={36}/>
+                  {d2n > 0 ? <span className="defect-txt">Vegetation</span> : <span className="defect-txt" style={{color:"#000"}}>Vegetation</span>}
+                  {d2n > 0 ? <div className="number">{d2n}</div> : <div className="number" style={{color:"#000"}}>{d2n}</div>}
+                  {d2n > 0 && <Switch onColor="#059908" onHandleColor="#FFFFFF" uncheckedIcon={false} checkedIcon={false} onChange={something} checked={d2} disabled = {d2n==0} className="react-switch" height={18} width={36}/>
+                }
+                  
               </div>
 
               <div className="information-btn3" ref={informationRef}>
@@ -277,9 +280,11 @@ function App({ boxes, changeshows, imgs }) {
               </div>
 
               <div className="check-tab" onClick={toggle3}>
-                  {d3n > 0 ? <span className="defect-txt">PID</span> : <span className="defect-txt" style={{color:"#777"}}>PID</span>}
-                  {d3n > 0 ? <div className="number">{d3n}</div> : <div className="number" style={{color:"#777"}}>{d3n}</div>}
+                  {d3n > 0 ? <span className="defect-txt">PID</span> : <span className="defect-txt" style={{color:"#000"}}>PID</span>}
+                  {d3n > 0 ? <div className="number">{d3n}</div> : <div className="number" style={{color:"#000"}}>{d3n}</div>}
+                  {d3n > 0 &&
                   <Switch onColor="#8E0CFF" onHandleColor="#FFFFFF" uncheckedIcon={false} checkedIcon={false} onChange={something} checked={d3} disabled = {d3n==0} className="react-switch" height={18} width={36}/>
+                }
               </div>
 
               <div className="information-btn4" ref={informationRef}>
@@ -290,9 +295,9 @@ function App({ boxes, changeshows, imgs }) {
               </div>
 
               <div className="check-tab" onClick={toggle4}>
-                  {d4n > 0 ? <span className="defect-txt">Module Hot</span> : <span className="defect-txt" style={{color:"#777"}}>Module Hot</span>}
-                  {d4n > 0 ? <div className="number">{d4n}</div> : <div className="number" style={{color:"#777"}}>{d4n}</div>}         
-                  <Switch onColor="#FF8B00" onHandleColor="#FFFFFF"  uncheckedIcon={false} checkedIcon={false} onChange={something} checked={d4} disabled = {d4n==0} className="react-switch" height={18} width={36}/>
+                  {d4n > 0 ? <span className="defect-txt">Module Hot</span> : <span className="defect-txt" style={{color:"#000"}}>Module Hot</span>}
+                  {d4n > 0 ? <div className="number">{d4n}</div> : <div className="number" style={{color:"#000"}}>{d4n}</div>}         
+                  {d4n > 0 && <Switch onColor="#FF8B00" onHandleColor="#FFFFFF"  uncheckedIcon={false} checkedIcon={false} onChange={something} checked={d4} disabled = {d4n==0} className="react-switch" height={18} width={36}/>}
               </div>
 
               <div className="information-btn5" ref={informationRef}>
@@ -303,9 +308,9 @@ function App({ boxes, changeshows, imgs }) {
               </div>
 
               <div className="check-tab" onClick={toggle5}>
-                  {d5n > 0 ? <span className="defect-txt">String Short</span> : <span className="defect-txt" style={{color:"#777"}}>String Short</span>}
-                  {d5n > 0 ? <div className="number">{d5n}</div> : <div className="number" style={{color:"#777"}}>{d5n}</div>}    
-                  <Switch onColor="#00FF76" onHandleColor="#FFFFFF" uncheckedIcon={false} checkedIcon={false} onChange={something} checked={d5} disabled = {d5n==0} className="react-switch" height={18} width={36}/>
+                  {d5n > 0 ? <span className="defect-txt">String Short</span> : <span className="defect-txt" style={{color:"#000"}}>String Short</span>}
+                  {d5n > 0 ? <div className="number">{d5n}</div> : <div className="number" style={{color:"#000"}}>{d5n}</div>}    
+                  {d5n > 0 && <Switch onColor="#00FF76" onHandleColor="#FFFFFF" uncheckedIcon={false} checkedIcon={false} onChange={something} checked={d5} disabled = {d5n==0} className="react-switch" height={18} width={36}/>}
               </div>
 
               <div className="information-btn6" ref={informationRef}>
@@ -316,9 +321,9 @@ function App({ boxes, changeshows, imgs }) {
               </div>
 
               <div className="check-tab" onClick={toggle6}>
-                  {d6n > 0 ? <span className="defect-txt">String Reverse</span> : <span className="defect-txt" style={{color:"#777"}}>String Reverse</span>}
-                  {d6n > 0 ? <div className="number">{d6n}</div> : <div className="number" style={{color:"#777"}}>{d6n}</div>}  
-                  <Switch onColor="#FF66EC" onHandleColor="#FFFFFF" uncheckedIcon={false} checkedIcon={false} onChange={something} checked={d6} disabled = {d6n==0} className="react-switch" height={18} width={36}/>
+                  {d6n > 0 ? <span className="defect-txt">String Reverse</span> : <span className="defect-txt" style={{color:"#000"}}>String Reverse</span>}
+                  {d6n > 0 ? <div className="number">{d6n}</div> : <div className="number" style={{color:"#000"}}>{d6n}</div>}  
+                  {d6n > 0 && <Switch onColor="#FF66EC" onHandleColor="#FFFFFF" uncheckedIcon={false} checkedIcon={false} onChange={something} checked={d6} disabled = {d6n==0} className="react-switch" height={18} width={36}/>}
               </div>
 
               <div className="information-btn7" ref={informationRef}>
@@ -329,8 +334,8 @@ function App({ boxes, changeshows, imgs }) {
               </div>
 
               <div className="check-tab" onClick={toggle7}>
-                  {d7n > 0 ? <span className="defect-txt">Rack</span> : <span className="defect-txt" style={{color:"#777"}}>Rack</span>}
-                  {d7n > 0 ? <div className="number">{d7n}</div> : <div className="number" style={{color:"#777"}}>{d7n}</div>}
+                  {d7n > 0 ? <span className="defect-txt">Rack</span> : <span className="defect-txt" style={{color:"#000"}}>Rack</span>}
+                  {d7n > 0 ? <div className="number">{d7n}</div> : <div className="number" style={{color:"#000"}}>{d7n}</div>}
                   <Switch onColor="#FFD800" onHandleColor="#FFFFFF" uncheckedIcon={false} checkedIcon={false} onChange={something} checked={d7} disabled = {d7n==0} className="react-switch" height={18} width={36}/>
               </div>
             </div>
